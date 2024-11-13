@@ -3,7 +3,7 @@
 }
 
 .keyboard-key[data-state="incorrect"] {
-  background-color: #3e4247;
+  background-color: #75797e;
 }
 
 .keyboard-key[data-state="partially"] {

@@ -4,6 +4,7 @@ import { useCurrentTileRow } from "../tileRow/hook";
 import { currentTileRowIndexAtom } from "../tileRow/state";
 import { useUpdateKeyboardState } from "../keyboard/hooks";
 import { useEffect } from "react";
+import { allWords } from "./allWords";
 
 export function useTileRowIds() {
   const maxTries = useRecoilValue(maxTriesAtom);
@@ -23,11 +24,13 @@ export function useOnSubmitGuess() {
     if (tileRow.length !== selectedWord.length) {
       return;
     }
+    let userWord = "";
 
     const updatedTileRow = tileRow.map((letter, index) => {
       const expected = selectedWord[index];
       const actual = letter.letter;
 
+      userWord += actual;
       if (expected == actual) {
         return { ...letter, state: "correct" };
       } else if (selectedWord.includes(actual)) {
@@ -36,6 +39,8 @@ export function useOnSubmitGuess() {
         return { ...letter, state: "incorrect" };
       }
     });
+
+    console.log(userWord);
 
     setTileRow(updatedTileRow);
     updateKeyboardState(updatedTileRow);
@@ -49,8 +54,10 @@ export function usePickRandomWord() {
   const [_, setWord] = useRecoilState(selectedWordAtom);
 
   useEffect(() => {
-    const words = ["REACT", "WORLD", "HELLO"];
+    const words = allWords;
     const index = Math.floor(Math.random() * words.length);
     setWord(words[index]);
   });
+
+  // for cheating console.log(_);
 }

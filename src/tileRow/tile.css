@@ -1,15 +1,19 @@
 .tile[data-state="pending"] {
   background-color: #a3afbf;
+  filter: drop-shadow(5px 5px 5px white);
 }
 
 .tile[data-state="incorrect"] {
   background-color: #3e4247;
+  filter: drop-shadow(5px 5px 5px #3e4247);
 }
 
 .tile[data-state="partially"] {
   background-color: #f2b84b;
+  filter: drop-shadow(5px 5px 5px #f2b84b);
 }
 
 .tile[data-state="correct"] {
   background-color: #86bf5e;
+  filter: drop-shadow(5px 5px 5px #86bf5e);
 }
