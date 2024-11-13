@@ -1,0 +1,15 @@
+.tile[data-state="pending"] {
+  background-color: #a3afbf;
+}
+
+.tile[data-state="incorrect"] {
+  background-color: #3e4247;
+}
+
+.tile[data-state="partially"] {
+  background-color: #f2b84b;
+}
+
+.tile[data-state="correct"] {
+  background-color: #86bf5e;
+}

@@ -1,0 +1,19 @@
+.keyboard-key[data-state="pending"] {
+  background-color: #a3afbf;
+}
+
+.keyboard-key[data-state="incorrect"] {
+  background-color: #3e4247;
+}
+
+.keyboard-key[data-state="partially"] {
+  background-color: #f2b84b;
+}
+
+.keyboard-key[data-state="correct"] {
+  background-color: #86bf5e;
+}
+
+.keyboard-key[data-size="large"] {
+  font-size: 28px;
+}
