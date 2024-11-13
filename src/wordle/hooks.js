@@ -5,7 +5,6 @@ import { currentTileRowIndexAtom } from "../tileRow/state";
 import { useUpdateKeyboardState } from "../keyboard/hooks";
 import { useEffect } from "react";
 import { allWords } from "./allWords";
-import axios from "axios";
 
 export function useTileRowIds() {
   const maxTries = useRecoilValue(maxTriesAtom);
