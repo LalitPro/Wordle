@@ -5,6 +5,7 @@ import { currentTileRowIndexAtom } from "../tileRow/state";
 import { useUpdateKeyboardState } from "../keyboard/hooks";
 import { useEffect } from "react";
 import { allWords } from "./allWords";
+import axios from "axios";
 
 export function useTileRowIds() {
   const maxTries = useRecoilValue(maxTriesAtom);
@@ -21,18 +22,9 @@ export function useOnSubmitGuess() {
   const updateKeyboardState = useUpdateKeyboardState();
 
   const onSubmitGuess = () => {
-    const guessWord = tileRow.map((letter) => letter.letter).join("");
-
-    // Check if the guess is valid
-    if (!allWords.includes(guessWord)) {
-      alert("Invalid word! Please try again.");
-      return; // Stop if the word is invalid
-    }
-
     if (tileRow.length !== selectedWord.length) {
       return;
     }
-
     let userWord = "";
 
     const updatedTileRow = tileRow.map((letter, index) => {
@@ -62,11 +54,17 @@ export function useOnSubmitGuess() {
 export function usePickRandomWord() {
   const [_, setWord] = useRecoilState(selectedWordAtom);
 
+  /*
   useEffect(() => {
     const words = allWords;
     const index = Math.floor(Math.random() * words.length);
     setWord(words[index]);
   });
+  */
 
-  // for cheating console.log(_);
+  const randomWord = axios.get(
+    "https://random-word-api.herokuapp.com/word?length=5"
+  );
+  setWord(randomWord);
+  console.log(_);
 }

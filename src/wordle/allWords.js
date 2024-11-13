@@ -1,14 +1,1 @@
-export const allWords = [
-  "REACT",
-  "WORLD",
-  "HELLO",
-  "WORDS",
-  "HOOKS",
-  "INDEX",
-  "BOARD",
-  "POWER",
-  "EARTH",
-  "GREEN",
-  "BRING",
-  "SWING",
-];
+export const allWords = ["HELLO","WORLD","CLONE","REACT"];
