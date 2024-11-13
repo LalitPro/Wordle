@@ -21,9 +21,18 @@ export function useOnSubmitGuess() {
   const updateKeyboardState = useUpdateKeyboardState();
 
   const onSubmitGuess = () => {
+    const guessWord = tileRow.map((letter) => letter.letter).join("");
+
+    // Check if the guess is valid
+    if (!allWords.includes(guessWord)) {
+      alert("Invalid word! Please try again.");
+      return; // Stop if the word is invalid
+    }
+
     if (tileRow.length !== selectedWord.length) {
       return;
     }
+
     let userWord = "";
 
     const updatedTileRow = tileRow.map((letter, index) => {
