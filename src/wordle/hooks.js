@@ -52,7 +52,6 @@ export function useOnSubmitGuess() {
 }
 
 export function usePickRandomWord() {
-export function usePickRandomWord() {
   const [_, setWord] = useRecoilState(selectedWordAtom);
 
   useEffect(() => {
