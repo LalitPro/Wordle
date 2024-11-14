@@ -31,9 +31,10 @@ export function useOnSubmitGuess() {
       const actual = letter.letter;
 
       userWord += actual;
+
       if (expected == actual) {
         return { ...letter, state: "correct" };
-      } else if (selectedWord.includes(actual)) {
+      } else if (selectedWord.includes(actual.toLowerCase())) {
         return { ...letter, state: "partially" };
       } else {
         return { ...letter, state: "incorrect" };
@@ -48,6 +49,7 @@ export function useOnSubmitGuess() {
     }
 
     console.log("The hidden word is:", selectedWord.toUpperCase());
+    localStorage.setItem("hiddenWord", selectedWord.toUpperCase());
 
     if (rowIndex >= 5) {
       setTimeout(() => (window.location.pathname = "over/lost"), 1000);

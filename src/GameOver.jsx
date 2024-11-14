@@ -14,6 +14,7 @@ function GameOver() {
   }
 
   const userName = localStorage.getItem("userName");
+  const hiddenWord = localStorage.getItem("hiddenWord");
 
   return (
     <div className="flex flex-col w-full gap-5 p-2 md:gap-9 rounded-3xl sm:p-8 md:p-8 xl:p-16 bg-slate-300">
@@ -22,8 +23,12 @@ function GameOver() {
         className="self-center w-full text-5xl text-center text-white md:w-1/2 white-drop"
         alt="WORDLE"
       />
-      <div className="flex flex-col justify-end sm:items-end sm:justify-center sm:flex-row">
-        <h2 className="text-4xl md:text-6xl">{msg},</h2>
+      <div className="flex flex-col justify-end sm:items-end sm:justify-center md:flex-row">
+        <h2 className="text-3xl md:text-5xl">
+          The word is{" "}
+          <span className="text-indigo-500 font-semibold">{hiddenWord}</span>,
+        </h2>
+        <h2 className="text-3xl md:text-5xl">{msg},</h2>
 
         <h1 id="heading" className="text-5xl md:text-7xl">
           {userName}
