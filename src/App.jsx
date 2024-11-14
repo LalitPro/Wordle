@@ -9,8 +9,7 @@ function App() {
   return (
     <RecoilRoot>
       <Routes>
-        <Route index element={<Home></Home>}></Route>
-        <Route path="/game" element={<Wordle />}></Route>
+        <Route path="*" element={<Wordle />}></Route>
       </Routes>
     </RecoilRoot>
   );
