@@ -24,7 +24,7 @@ export const KeyboardKey = ({
       data-state={state}
       data-size={size}
       {...props}
-      className="key px-1 py-2 m-px text-xl hover:bg-deepgray font-semibold text-center border-0 rounded-md sm:p-4 sm:m-0.5 md:p-6 md:m-1 xl:text-2xl xl:p-5 text-lightwhite bg-littlegray keyboard-key"
+      className="key px-1.5 py-2 m-px text-xl hover:bg-deepgray font-semibold text-center border-0 rounded-md sm:p-4 sm:m-0.5 md:p-6 md:m-1 xl:text-2xl xl:p-5 text-lightwhite bg-littlegray keyboard-key"
     >
       {children}
     </button>
