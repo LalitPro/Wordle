@@ -540,6 +540,7 @@ export const allWords = [
   "cloak",
   "clock",
   "clods",
+  "clone",
   "clogs",
   "close",
   "cloth",

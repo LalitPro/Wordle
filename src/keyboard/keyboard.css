@@ -1,5 +1,5 @@
 .keyboard-key[data-state="pending"] {
-  background-color: #a3afbf;
+  background-color: #717d8b;
 }
 
 .keyboard-key[data-state="incorrect"] {
@@ -16,4 +16,16 @@
 
 .keyboard-key[data-size="large"] {
   font-size: 28px;
+}
+
+.keyboard-key:hover {
+  background-color: #c4cbdd;
+}
+
+.key {
+  transition: transform 0.1s ease;
+}
+
+.key:active {
+  transform: scale(0.9);
 }

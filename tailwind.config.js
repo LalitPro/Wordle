@@ -6,6 +6,8 @@ export default {
       colors: {
         lightwhite: "#f2f2f2",
         lightgrayed: "#717d8b",
+        littlegray: "#dce1ed",
+        deepgray: "#c4cbdd",
       },
       fontSize: {
         six: "6px",

@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#heading {
+  text-shadow: 0 0 1px black;
+  filter: drop-shadow(15px 15px 15px #ffff);
+  animation-name: colorChange;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-direction: normal;
+}
+
+@keyframes colorChange {
+  0% {
+    color: #fff;
+  }
+  25% {
+    color: red;
+    filter: drop-shadow(15px 15px 15px red);
+  }
+  50% {
+    color: skyblue;
+    filter: drop-shadow(15px 15px 15px skyblue);
+  }
+  75% {
+    color: greenyellow;
+    filter: drop-shadow(15px 15px 15px greenyellow);
+  }
+  100% {
+    color: orange;
+    filter: drop-shadow(15px 15px 15px orange);
+  }
+}

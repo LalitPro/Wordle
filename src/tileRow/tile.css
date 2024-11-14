@@ -17,3 +17,19 @@
   background-color: #86bf5e;
   filter: drop-shadow(5px 5px 5px #86bf5e);
 }
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bounce-animation {
+  animation: bounce 0.3s ease-in-out;
+}
