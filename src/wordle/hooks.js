@@ -28,7 +28,7 @@ export function useOnSubmitGuess() {
     let userWord = "";
 
     const updatedTileRow = tileRow.map((letter, index) => {
-      const expected = selectedWord[index];
+      const expected = selectedWord[index].toUpperCase();
       const actual = letter.letter;
 
       userWord += actual;
@@ -40,15 +40,14 @@ export function useOnSubmitGuess() {
         return { ...letter, state: "incorrect" };
       }
     });
-
-    if (allWords.includes(userWord)) {
+    if (allWords.includes(userWord.toLowerCase())) {
       setTileRow(updatedTileRow);
       updateKeyboardState(updatedTileRow);
       setRowIndex(rowIndex + 1);
     } else {
-      alert("Enter a valid word");
+      alert("Invalid word! Please enter a valid word.");
+      // ui add karna baki hai
     }
-    console.log(userWord);
   };
 
   return onSubmitGuess;
@@ -69,4 +68,31 @@ export function usePickRandomWord() {
   setWord(randomWord);
   */
   console.log(_);
+}
+
+export function useKeyboardInput(onSubmitGuess, updateTileRow) {
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const key = event.key.toLowerCase();
+
+      // Handle Enter key for submitting a guess
+      if (key === "enter") {
+        onSubmitGuess();
+      }
+      // Handle Backspace key for deleting a letter
+      else if (key === "backspace") {
+        updateTileRow((prevRow) => prevRow.slice(0, -1));
+      }
+      // Handle letter keys for adding letters to the tile row
+      else if (key.length === 1 && /[a-z]/.test(key)) {
+        updateTileRow((prevRow) => [...prevRow, { letter: key.toUpperCase() }]);
+      }
+    };
+
+    // Attach event listener
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Cleanup event listener
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onSubmitGuess, updateTileRow]);
 }
