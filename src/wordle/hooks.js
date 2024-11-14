@@ -39,13 +39,12 @@ export function useOnSubmitGuess() {
         return { ...letter, state: "incorrect" };
       }
     });
-
     if (allWords.includes(userWord.toLowerCase())) {
       setTileRow(updatedTileRow);
       updateKeyboardState(updatedTileRow);
       setRowIndex(rowIndex + 1);
     } else {
-      alert("Invalid word! Please enter a valid word.");
+      alert("Invalid word!Please enter a valid word.");
     }
 
     console.log("The hidden word is:", selectedWord.toUpperCase());
