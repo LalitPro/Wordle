@@ -7,11 +7,14 @@ import { Route, Routes } from "react-router-dom";
 function App() {
   const path = window.location.pathname;
   return (
-    <RecoilRoot>
-      <Routes>
-        <Route path="*" element={<Wordle />}></Route>
-      </Routes>
-    </RecoilRoot>
+    <div className="flex items-center justify-center min-h-screen min-w-screen">
+      <RecoilRoot>
+        <Routes>
+          <Route path="*" element={<Home />}></Route>{" "}
+          <Route path="/game" element={<Wordle />}></Route>
+        </Routes>
+      </RecoilRoot>
+    </div>
   );
 }
 

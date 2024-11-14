@@ -15,9 +15,13 @@ export const Wordle = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <h1 id="heading" className="text-5xl text-center text-white ">
-        WORDLE
-      </h1>
+      <h1 className="text-5xl text-center text-white white-drop">WORDLE</h1>
+      <h2 className="text-center">
+        <span id="heading" className="text-xl">
+          {localStorage.getItem("userName")}{" "}
+        </span>
+        Guess today's Word
+      </h2>
       <GameBoard />
       <Keyboard />
     </div>
