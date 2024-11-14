@@ -61,11 +61,12 @@ export function usePickRandomWord() {
     const words = allWords;
     const index = Math.floor(Math.random() * words.length);
     setWord(words[index]);
-  });
+  }, []);
 
-  const randomWord = axios.get(
+  /*const randomWord = axios.get(
     "https://random-word-api.herokuapp.com/word?length=5"
   );
   setWord(randomWord);
+  */
   console.log(_);
 }
