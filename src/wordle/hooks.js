@@ -5,7 +5,7 @@ import { currentTileRowIndexAtom } from "../tileRow/state";
 import { useUpdateKeyboardState } from "../keyboard/hooks";
 import { useEffect } from "react";
 import { allWords } from "./allWords";
-// import axios from "axios";
+import axios from "axios";
 
 export function useTileRowIds() {
   const maxTries = useRecoilValue(maxTriesAtom);
@@ -61,13 +61,12 @@ export function usePickRandomWord() {
     const words = allWords;
     const index = Math.floor(Math.random() * words.length);
     setWord(words[index]);
-  }, []);
+  });
+  */
 
-  /*
   const randomWord = axios.get(
     "https://random-word-api.herokuapp.com/word?length=5"
   );
   setWord(randomWord);
-    */
   console.log(_);
 }
