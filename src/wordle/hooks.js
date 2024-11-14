@@ -5,7 +5,6 @@ import { currentTileRowIndexAtom } from "../tileRow/state";
 import { useUpdateKeyboardState } from "../keyboard/hooks";
 import { useEffect } from "react";
 import { allWords } from "./allWords";
-import axios from "axios";
 
 export function useTileRowIds() {
   const maxTries = useRecoilValue(maxTriesAtom);
@@ -40,13 +39,22 @@ export function useOnSubmitGuess() {
         return { ...letter, state: "incorrect" };
       }
     });
+
     if (allWords.includes(userWord.toLowerCase())) {
       setTileRow(updatedTileRow);
       updateKeyboardState(updatedTileRow);
       setRowIndex(rowIndex + 1);
     } else {
       alert("Invalid word! Please enter a valid word.");
-      // ui add karna baki hai
+    }
+
+    console.log("The hidden word is:", selectedWord.toUpperCase());
+
+    if (rowIndex >= 5) {
+      setTimeout(() => (window.location.pathname = "over/lost"), 1000);
+    }
+    if (userWord == selectedWord.toUpperCase()) {
+      setTimeout(() => (window.location.pathname = "over/win"), 1000);
     }
   };
 
@@ -67,7 +75,7 @@ export function usePickRandomWord() {
   );
   setWord(randomWord);
   */
-  console.log(_);
+  // console.log(_);
 }
 
 export function useKeyboardInput(onSubmitGuess, updateTileRow) {

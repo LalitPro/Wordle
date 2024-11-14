@@ -14,8 +14,12 @@ export const Wordle = () => {
   useKeyboardInput(onSubmitGuess, setTileRow);
 
   return (
-    <div className="flex flex-col gap-2">
-      <h1 className="text-5xl text-center text-white white-drop">WORDLE</h1>
+    <div className="flex flex-col items-center gap-1">
+      <img
+        src="./images/title.png"
+        className="text-5xl text-center text-white w-96 white-drop"
+        alt="WORDLE"
+      />
       <h2 className="text-center">
         <span id="heading" className="text-xl">
           {localStorage.getItem("userName")}{" "}
