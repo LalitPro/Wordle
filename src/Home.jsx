@@ -54,7 +54,7 @@ function Home() {
         <div>
           <div className="flex flex-col gap-3 mb-4 md:gap-7">
             <a
-              className="w-full py-3 text-2xl font-bold text-center text-white bg-sky-400 rounded-2xl"
+              className="w-full py-3 text-2xl font-bold text-center text-white hover:bg-white hover:text-bg-400 border-sky-400 bg-sky-400 rounded-2xl"
               href="/game"
             >
               New Game
