@@ -37,12 +37,14 @@ function GameOver() {
           >
             Play Again
           </Link>
-          <Link
-            className="w-full py-3 text-2xl font-bold text-center text-white border-4 shadow-2xl hover:bg-sky-500 bg-sky-400 rounded-2xl"
-            to="/guide"
-          >
-            How To Play
-          </Link>
+          {
+            <Link
+              className="w-full py-3 text-2xl font-bold text-center text-white border-4 shadow-2xl hover:bg-sky-500 bg-sky-400 rounded-2xl"
+              to="/guide"
+            >
+              How To Play
+            </Link>
+          }
           <Link
             className="w-full py-3 text-2xl font-bold text-center text-white border-4 shadow-2xl hover:bg-sky-500 bg-sky-400 rounded-2xl"
             to="/credits"

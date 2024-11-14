@@ -27,15 +27,17 @@ export const useOnBackspaceClicked = () => {
 
 export const useUpdateKeyboardState = () => {
   const [keyboard, setKeyboard] = useRecoilState(keyboardState);
+
   const updateKeyboardState = (letters = []) => {
     const newKeyboardState = { ...keyboard };
     letters.forEach((letter) => {
-      if (newKeyboardState[letter.letter] != "correct") {
+      if (newKeyboardState[letter.letter] !== "correct") {
         newKeyboardState[letter.letter] = letter.state;
       }
     });
 
     setKeyboard(newKeyboardState);
   };
+
   return updateKeyboardState;
 };

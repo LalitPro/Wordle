@@ -29,3 +29,7 @@
 .key:active {
   transform: scale(0.9);
 }
+
+.keyboard-key[data-state="partially"] {
+  background-color: #f2b84b;
+}
