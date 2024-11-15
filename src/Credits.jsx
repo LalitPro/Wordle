@@ -26,7 +26,7 @@ function Credits() {
           <p className="text-lg xl:text-2xl">
             This is a practice Project. In this project, I have written whole
             code in React. The Game concept is player has to guess the five
-            letter word which is randomly selected from an array in coding.
+            letter word randomly selected from an array in coding.
           </p>
         </div>
       </div>
