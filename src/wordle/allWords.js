@@ -536,6 +536,7 @@ export const allWords = [
   "clime",
   "cling",
   "clink",
+  "timer",
   "clips",
   "cloak",
   "clock",

@@ -32,6 +32,7 @@ export function useOnSubmitGuess() {
 
       userWord += actual;
 
+      console.log("expected", expected);
       if (expected == actual) {
         return { ...letter, state: "correct" };
       } else if (selectedWord.includes(actual.toLowerCase())) {
