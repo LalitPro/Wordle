@@ -10,71 +10,95 @@ function Credits() {
       >
         Go Back
       </Link>
-      <div className="flex flex-col items-center justify-center w-full gap-5 p-2 m-8 sm:flex-row md:w-3/4 md:gap-9 rounded-3xl sm:p-8 md:p-8 xl:p-16 bg-slate-300">
-        <img
-          className="mt-auto shadow-2xl rounded-3xl w-60"
-          src="./images/icon.png"
-          alt="Logo"
-        />
-        <div>
-          <h1 className="text-5xl font-semibold text-green-400 xl:text-7xl">
-            WORDLE
-          </h1>
-          <h2 className="ml-1 text-3xl text-red-400 xl:text-4xl">
-            Made by <a href="">Lalit Yadav</a>
-          </h2>
-          <p className="text-lg xl:text-2xl">
-            This is a practice Project. In this project, I have written whole
-            code in React. The Game concept is player has to guess the five
-            letter word randomly selected from an array in coding.
-          </p>
+      <header class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto text-center">
+          <h1 class="text-2xl font-bold">Wordle - A React Practice Project</h1>
+          <p class="text-sm">Created by Lalit Yadav</p>
         </div>
-      </div>
-      <div className="flex flex-col items-center justify-center w-full gap-5 p-2 m-8 sm:flex-row-reverse md:w-3/4 md:gap-9 rounded-3xl sm:p-8 md:p-8 xl:p-16 bg-slate-300">
-        <div>
-          <h1 className="text-5xl font-semibold text-green-400 xl:text-7xl">
-            Lalit Yadav
-          </h1>
-          <h2 className="ml-1 text-3xl text-red-400 xl:text-4xl">About Me.</h2>
-          <p className="text-lg xl:text-2xl">
-            Hey, I am <span className="font-semibold">Lalit Kumar Yadav</span>.
-            I am a student of class 9th in Govt. High School Bhatti. How I Came
-            into Coding? At the age of twelve, I started learning Visual Basic.
-            I haven't learned it completely. I don't know the fundamentals. I
-            participated in the TCS Rural IT Quiz On Sep 30 the quiz happened
-            and I became the Runner-up in the Regional Finals of the National
-            Level.
+      </header>
+
+      <main class="container mx-auto px-4 py-6">
+        <section class="mb-8">
+          <h2 class="text-xl font-semibold text-blue-600">Project Overview</h2>
+          <p class="mt-2 text-justify">
+            This Wordle game is a fun and interactive project developed entirely
+            in <strong>React</strong>. The concept is simple yet engaging:
+            players must guess a randomly selected five-letter word from a
+            predefined array. It's a great way to practice coding and enhance
+            problem-solving skills!
           </p>
-        </div>
-      </div>
-      <div className="flex flex-col items-center justify-center w-full gap-5 p-2 m-8 sm:flex-row-reverse md:w-3/4 md:gap-9 rounded-3xl sm:p-8 md:p-8 xl:p-16 bg-slate-300">
-        <img
-          className="px-8 py-16 mt-auto bg-white shadow-2xl shadow-white rounded-3xl bg- w-60"
-          src="https://codeyogi.io/logo.png"
-          alt="Logo"
-        />
-        <div>
-          <h1 className="text-5xl font-semibold text-green-400 xl:text-7xl">
-            Codeyogi
-          </h1>
-          <h2 className="ml-1 text-3xl text-red-400 xl:text-4xl">
-            <a href="https://www.codeyogi.io" target="_blank">
-              Join Now
-            </a>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-xl font-semibold text-blue-600">About Me</h2>
+          <p class="mt-2">
+            <strong>Hi, I'm Lalit Kumar Yadav,</strong> a student in{" "}
+            <strong>9th grade</strong> at{" "}
+            <strong>Govt. High School Bhatti.</strong>
+          </p>
+
+          <h3 class="mt-4 text-lg font-semibold text-gray-700">
+            My Journey into Coding
+          </h3>
+          <p class="mt-2 text-justify">
+            My coding journey started when I was 12 years old, experimenting
+            with <strong>Visual Basic</strong>. Although I didn’t master it, it
+            sparked my curiosity for programming.
+          </p>
+          <p class="mt-2 text-justify">
+            In <strong>September</strong>, I participated in the{" "}
+            <strong>TCS Rural IT Quiz</strong> and became the{" "}
+            <strong>Runner-up</strong> in the Regional Finals at the National
+            Level, which motivated me to explore technology further.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-blue-600">
+            How I’m Learning Coding
           </h2>
-          <p className="text-lg xl:text-2xl">
-            A few months ago Our SDM ruined an initiative "Coding for All". In
-            this initiative, a team of I.I.T. Delhi graduates teaches us Coding
-            and more specifically Web development. Here I learned HTML, CSS,
-            JavaScript, Tailwind CSS, React, Git, GitHub, and Deployment on
-            Netlify my course is not completed and I learned these from the
-            course. If you want to Enroll in this Course Join{" "}
-            <a href="https://www.codeyogi.io" target="_blank">
+          <p class="mt-2 text-justify">
+            A few months ago, our SDM launched an initiative called{" "}
+            <strong>"Coding for All"</strong>, where graduates from{" "}
+            <strong>IIT Delhi</strong> introduced us to web development. This
+            program has been a transformative experience for me.
+          </p>
+          <p class="mt-2">So far, I’ve learned:</p>
+          <ul class="list-disc ml-6 mt-2 text-gray-700">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Tailwind CSS</li>
+            <li>React</li>
+            <li>Git & GitHub</li>
+            <li>Deployment on Netlify</li>
+          </ul>
+          <p class="mt-2">
+            The course is ongoing, and I'm excited to keep learning and building
+            projects like this! If you're interested in learning coding, you can
+            join the program at
+            <a
+              href="https://www.codeyogi.io"
+              target="_blank"
+              class="text-blue-500 underline"
+            >
               www.codeyogi.io
             </a>
+            .
+          </p>
+        </section>
+      </main>
+
+      <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+          <p class="text-sm">
+            Logo: <strong>Codeyogi</strong>
+          </p>
+          <p class="text-sm">
+            Join <strong>Codeyogi</strong> today to start your coding journey!
           </p>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }
