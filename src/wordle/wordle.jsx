@@ -27,8 +27,10 @@ export const Wordle = () => {
         </span>
         Guess today's Word
       </h2>
-      <GameBoard />
-      <Keyboard />
+      <div className="flex flex-col items-center justify-center xl:gap-10 xl:flex-row">
+        <GameBoard />
+        <Keyboard />
+      </div>
     </div>
   );
 };
