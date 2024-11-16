@@ -28,7 +28,7 @@ export const Wordle = () => {
     <div className="relative flex flex-col items-center gap-1">
       <img
         src="./images/title.png"
-        className="text-5xl text-center text-white w-96 white-drop"
+        className="text-5xl text-center text-white w-60 sm:w-80 md:w-96 xl:w-1/2 white-drop"
         alt="WORDLE"
       />
       <h2 className="text-center">
@@ -37,7 +37,7 @@ export const Wordle = () => {
         </span>
         Guess today's Word
       </h2>{" "}
-      <div className="absolute right-0 flex flex-col items-center justify-center w-10 -top-10">
+      <div className="absolute flex flex-col items-center justify-center w-10 m-5 -right-10 -top-10">
         <AiFillSound className="text-3xl text-yellow-500" />
         <input
           className="w-full"
