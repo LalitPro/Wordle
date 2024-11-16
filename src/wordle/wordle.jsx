@@ -4,7 +4,6 @@ import { usePickRandomWord } from "./hooks";
 import { useKeyboardInput } from "./hooks"; // adjust path as necessary
 import { useOnSubmitGuess } from "./hooks";
 import { useCurrentTileRow } from "../tileRow/hook";
-import InvalidWordPopup from "./InvalidWordPopup";
 
 export const Wordle = () => {
   const onSubmitGuess = useOnSubmitGuess();

@@ -8,8 +8,12 @@ function GameOver() {
   let msg = "";
 
   if (path == "/over/win") {
+    const gameWin = new Audio("../audios/gameWin.mp3");
+    gameWin.play();
     msg = "Your Are Winner";
   } else {
+    const gameLost = new Audio("../audios/gameLost.mp3");
+    gameLost.play();
     msg = "You Lost Try Again";
   }
 

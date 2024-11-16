@@ -20,6 +20,8 @@ export function useOnSubmitGuess() {
   const [rowIndex, setRowIndex] = useRecoilState(currentTileRowIndexAtom);
   const updateKeyboardState = useUpdateKeyboardState();
 
+  const onSubmitAudio = new Audio("../audios/submit.mp3");
+
   const onSubmitGuess = () => {
     if (tileRow.length !== selectedWord.length) {
       return;
@@ -42,6 +44,7 @@ export function useOnSubmitGuess() {
       }
     });
     if (allWords.includes(userWord.toLowerCase())) {
+      onSubmitAudio.play();
       setTileRow(updatedTileRow);
       updateKeyboardState(updatedTileRow);
       setRowIndex(rowIndex + 1);
@@ -83,19 +86,23 @@ export function usePickRandomWord() {
 export function useKeyboardInput(onSubmitGuess, updateTileRow) {
   useEffect(() => {
     const handleKeyDown = (event) => {
+      const btnClick = new Audio("../audios/btnClick.mp3");
       const key = event.key.toLowerCase();
 
       // Handle Enter key for submitting a guess
       if (key === "enter") {
         onSubmitGuess();
+        btnClick.play();
       }
       // Handle Backspace key for deleting a letter
       else if (key === "backspace") {
         updateTileRow((prevRow) => prevRow.slice(0, -1));
+        btnClick.play();
       }
       // Handle letter keys for adding letters to the tile row
       else if (key.length === 1 && /[a-z]/.test(key)) {
         updateTileRow((prevRow) => [...prevRow, { letter: key.toUpperCase() }]);
+        btnClick.play();
       }
     };
 
