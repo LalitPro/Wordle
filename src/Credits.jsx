@@ -10,10 +10,12 @@ function Credits() {
       >
         Go Back
       </Link>
-      <header class="bg-blue-600 text-white py-4">
+      <header class="bg-blue-600 w-full text-white py-4">
         <div class="container mx-auto text-center">
-          <h1 class="text-2xl font-bold">Wordle - A React Practice Project</h1>
-          <p class="text-sm">Created by Lalit Yadav</p>
+          <h1 class="text-xl md:text-2xl m-5 font-bold">
+            Wordle - A React Practice Project
+          </h1>
+          <p class="text-xs md:text-sm">Created by Lalit Yadav</p>
         </div>
       </header>
 
@@ -76,7 +78,7 @@ function Credits() {
           <p class="mt-2">
             The course is ongoing, and I'm excited to keep learning and building
             projects like this! If you're interested in learning coding, you can
-            join the program at
+            join the program at <span> </span>
             <a
               href="https://www.codeyogi.io"
               target="_blank"
@@ -89,13 +91,16 @@ function Credits() {
         </section>
       </main>
 
-      <footer class="bg-gray-800 text-white py-4">
+      <footer class="bg-gray-800 w-full text-white py-4">
         <div class="container mx-auto text-center">
           <p class="text-sm">
-            Logo: <strong>Codeyogi</strong>
-          </p>
-          <p class="text-sm">
-            Join <strong>Codeyogi</strong> today to start your coding journey!
+            Join{" "}
+            <strong>
+              <a href="https://codeyogi.io" target="_blank">
+                Codeyogi
+              </a>
+            </strong>{" "}
+            today to start your coding journey!
           </p>
         </div>
       </footer>
