@@ -1,6 +1,7 @@
 import React from "react";
 import "./keyboard.css";
 import { BsBackspace } from "react-icons/bs";
+import { useVolume } from "../VolumeContext";
 import {
   useLetterState,
   useOnBackspaceClicked,
@@ -19,11 +20,25 @@ export const KeyboardKey = ({
   children,
   ...props
 }) => {
+  const { volume } = useVolume(); // Get the global volume
+
+  const playClickSound = () => {
+    const btnClick = new Audio("../audios/btnClick.mp3");
+    btnClick.volume = volume; // Set the global volume
+    btnClick.play().catch((error) => {
+      console.error("Error playing button click sound:", error);
+    });
+  };
+
   return (
     <button
       data-state={state}
       data-size={size}
       {...props}
+      onClick={(e) => {
+        playClickSound(); // Play sound on click
+        props.onClick && props.onClick(e); // Call the original onClick handler, if provided
+      }}
       className="key px-2 py-2 m-px text-xl hover:bg-deepgray font-semibold text-center border-0 rounded-md sm:p-4 sm:m-0.5 md:p-6 md:m-1 xl:text-2xl xl:p-5 text-lightwhite bg-littlegray keyboard-key"
     >
       {children}

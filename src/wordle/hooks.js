@@ -1,3 +1,4 @@
+import { useVolume } from "../VolumeContext"; //
 import { useRecoilState, useRecoilValue } from "recoil";
 import { maxTriesAtom, selectedWordAtom } from "./state";
 import { useCurrentTileRow } from "../tileRow/hook";
@@ -13,14 +14,12 @@ export function useTileRowIds() {
 export function useWordLength() {
   return useRecoilValue(selectedWordAtom).length;
 }
-
+/*
 export function useOnSubmitGuess() {
   const selectedWord = useRecoilValue(selectedWordAtom);
   const [tileRow, setTileRow] = useCurrentTileRow();
   const [rowIndex, setRowIndex] = useRecoilState(currentTileRowIndexAtom);
   const updateKeyboardState = useUpdateKeyboardState();
-
-  const onSubmitAudio = new Audio("../audios/submit.mp3");
 
   const onSubmitGuess = () => {
     if (tileRow.length !== selectedWord.length) {
@@ -44,7 +43,6 @@ export function useOnSubmitGuess() {
       }
     });
     if (allWords.includes(userWord.toLowerCase())) {
-      onSubmitAudio.play();
       setTileRow(updatedTileRow);
       updateKeyboardState(updatedTileRow);
       setRowIndex(rowIndex + 1);
@@ -65,6 +63,7 @@ export function useOnSubmitGuess() {
 
   return onSubmitGuess;
 }
+  */
 
 export function usePickRandomWord() {
   const [_, setWord] = useRecoilState(selectedWordAtom);
@@ -83,26 +82,23 @@ export function usePickRandomWord() {
   // console.log(_);
 }
 
+/*
 export function useKeyboardInput(onSubmitGuess, updateTileRow) {
   useEffect(() => {
     const handleKeyDown = (event) => {
-      const btnClick = new Audio("../audios/btnClick.mp3");
       const key = event.key.toLowerCase();
 
       // Handle Enter key for submitting a guess
       if (key === "enter") {
         onSubmitGuess();
-        btnClick.play();
       }
       // Handle Backspace key for deleting a letter
       else if (key === "backspace") {
         updateTileRow((prevRow) => prevRow.slice(0, -1));
-        btnClick.play();
       }
       // Handle letter keys for adding letters to the tile row
       else if (key.length === 1 && /[a-z]/.test(key)) {
         updateTileRow((prevRow) => [...prevRow, { letter: key.toUpperCase() }]);
-        btnClick.play();
       }
     };
 
@@ -112,4 +108,85 @@ export function useKeyboardInput(onSubmitGuess, updateTileRow) {
     // Cleanup event listener
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onSubmitGuess, updateTileRow]);
+}
+
+*/
+
+export function useOnSubmitGuess() {
+  const { volume } = useVolume();
+  const selectedWord = useRecoilValue(selectedWordAtom);
+  const [tileRow, setTileRow] = useCurrentTileRow();
+  const [rowIndex, setRowIndex] = useRecoilState(currentTileRowIndexAtom);
+  const updateKeyboardState = useUpdateKeyboardState();
+
+  const onSubmitAudio = new Audio("../audios/submit.mp3");
+  onSubmitAudio.volume = volume;
+
+  const onSubmitGuess = () => {
+    if (tileRow.length !== selectedWord.length) {
+      return;
+    }
+    let userWord = "";
+
+    const updatedTileRow = tileRow.map((letter, index) => {
+      const expected = selectedWord[index].toUpperCase();
+      const actual = letter.letter;
+
+      userWord += actual;
+
+      if (expected === actual) {
+        return { ...letter, state: "correct" };
+      } else if (selectedWord.includes(actual.toLowerCase())) {
+        return { ...letter, state: "partially" };
+      } else {
+        return { ...letter, state: "incorrect" };
+      }
+    });
+
+    if (allWords.includes(userWord.toLowerCase())) {
+      onSubmitAudio.play();
+      setTileRow(updatedTileRow);
+      updateKeyboardState(updatedTileRow);
+      setRowIndex(rowIndex + 1);
+    } else {
+      alert("Invalid word! Please enter a valid word.");
+    }
+
+    if (rowIndex >= 5) {
+      setTimeout(() => (window.location.pathname = "over/lost"), 1000);
+    }
+    if (userWord === selectedWord.toUpperCase()) {
+      setTimeout(() => (window.location.pathname = "over/win"), 1000);
+    }
+  };
+
+  return onSubmitGuess;
+}
+
+export function useKeyboardInput(onSubmitGuess, updateTileRow) {
+  const { volume } = useVolume(); // Get global volume
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const btnClick = new Audio("../audios/btnClick.mp3");
+      btnClick.volume = volume; // Set global volume
+
+      const key = event.key.toLowerCase();
+
+      if (key === "enter") {
+        onSubmitGuess();
+        btnClick.play();
+      } else if (key === "backspace") {
+        updateTileRow((prevRow) => prevRow.slice(0, -1));
+        btnClick.play();
+      } else if (key.length === 1 && /[a-z]/.test(key)) {
+        updateTileRow((prevRow) => [...prevRow, { letter: key.toUpperCase() }]);
+        btnClick.play();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onSubmitGuess, updateTileRow, volume]);
 }
