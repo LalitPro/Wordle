@@ -3,35 +3,35 @@ import { Link } from "react-router-dom";
 
 function Guide() {
   return (
-    <div className="max-w-3xl relative mx-auto p-6 text-gray-800">
+    <div className="relative max-w-3xl p-6 mx-auto text-gray-800">
       <Link
         to="/home"
         className="absolute top-0 right-0 px-5 py-1 m-1 font-semibold text-white bg-red-400 md:m-2 hover:bg-red-600 hover sm:m-4 rounded-3xl"
       >
         Go Back
       </Link>
-      <h1 className="text-3xl font-bold mb-4">How to Play</h1>
+      <h1 className="mb-4 text-3xl font-bold">How to Play</h1>
       <section className="mb-6">
         <p className="mb-4">
           Guess the hidden word within six tries! Each guess reveals color hints
           about the letters.
         </p>
-        <h2 className="text-2xl font-semibold mb-3">Game Rules</h2>
-        <ul className="list-disc ml-6 space-y-2">
+        <h2 className="mb-3 text-2xl font-semibold">Game Rules</h2>
+        <ul className="ml-6 space-y-2 list-disc">
           <li>Enter a valid five-letter word as your guess.</li>
           <li>
             Letter color meanings:
-            <ul className="list-disc ml-6">
+            <ul className="ml-6 list-disc">
               <li>
-                <span className="text-green-600 font-semibold">Green:</span>{" "}
+                <span className="font-semibold text-green-600">Green:</span>{" "}
                 Correct letter and position.
               </li>
               <li>
-                <span className="text-yellow-500 font-semibold">Yellow:</span>{" "}
+                <span className="font-semibold text-yellow-500">Yellow:</span>{" "}
                 Correct letter, wrong position.
               </li>
               <li>
-                <span className="text-gray-400 font-semibold">Gray:</span>{" "}
+                <span className="font-semibold text-gray-400">Gray:</span>{" "}
                 Incorrect letter.
               </li>
             </ul>
@@ -39,9 +39,9 @@ function Guide() {
           <li>Guess the word in six tries to win!</li>
         </ul>
       </section>
-      <h2 className="text-2xl font-semibold mb-3">Tips & Strategies</h2>
+      <h2 className="mb-3 text-2xl font-semibold">Tips & Strategies</h2>
       <section>
-        <ul className="list-disc ml-6 space-y-2">
+        <ul className="ml-6 space-y-2 list-disc">
           <li>Start with common words to reveal key letters.</li>
           <li>Use guesses strategically to confirm letter positions.</li>
         </ul>

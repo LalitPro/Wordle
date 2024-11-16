@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import MyLink from "./MyLink";
 
 function GameOver() {
   const path = window.location.pathname;
@@ -126,26 +126,9 @@ function GameOver() {
         </>
 
         <div className="flex flex-col w-full gap-3 mb-4 md:gap-7">
-          <Link
-            className="w-full py-3 text-2xl font-bold text-center text-white border-4 shadow-2xl hover:bg-sky-500 bg-sky-400 rounded-2xl"
-            to="/game"
-          >
-            Play Again
-          </Link>
-          {
-            <Link
-              className="w-full py-3 text-2xl font-bold text-center text-white border-4 shadow-2xl hover:bg-sky-500 bg-sky-400 rounded-2xl"
-              to="/guide"
-            >
-              How To Play
-            </Link>
-          }
-          <Link
-            className="w-full py-3 text-2xl font-bold text-center text-white border-4 shadow-2xl hover:bg-sky-500 bg-sky-400 rounded-2xl"
-            to="/credits"
-          >
-            Credits
-          </Link>
+          <MyLink to="/game">Play Again</MyLink>
+          <MyLink to="/guide">How To Play</MyLink>
+          <MyLink to="/credits">Credits</MyLink>
         </div>
       </div>
     </div>

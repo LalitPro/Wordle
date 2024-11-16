@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import MyLink from "./MyLink";
 
 function Home() {
   if (!localStorage.getItem("userName")) {
@@ -46,38 +47,23 @@ function Home() {
   } else {
     const userName = localStorage.getItem("userName");
     return (
-      <div className="flex flex-col w-full gap-5 p-2 md:gap-9 rounded-3xl sm:p-8 md:p-8 xl:p-16 bg-slate-300">
+      <div className="flex flex-col w-full gap-5 p-2 text-5xl md:gap-9 rounded-3xl sm:p-8 md:p-8 xl:p-16 bg-slate-300">
         <img
           src="./images/title.png"
-          className="self-center w-full text-5xl text-center text-white md:w-1/2 white-drop"
+          className="self-center w-full text-center text-white md:w-1/2 white-drop"
           alt="WORDLE"
         />
-        <div className="flex flex-col justify-end sm:items-end sm:justify-center sm:flex-row">
-          <h2 className="text-4xl md:text-6xl">Hi,</h2>
+        <div className="flex flex-col justify-end text-4xl md:text-6xl sm:items-end sm:justify-center sm:flex-row">
+          <h2>Hi,</h2>
           <h1 id="heading" className="text-5xl md:text-7xl">
             {userName}
           </h1>
         </div>
         <div>
           <div className="flex flex-col gap-3 mb-4 md:gap-7">
-            <Link
-              className="w-full py-3 text-2xl font-bold text-center text-white border-4 shadow-2xl hover:bg-sky-500 bg-sky-400 rounded-2xl"
-              to="/game"
-            >
-              New Game
-            </Link>
-            <Link
-              className="w-full py-3 text-2xl font-bold text-center text-white border-4 shadow-2xl hover:bg-sky-500 bg-sky-400 rounded-2xl"
-              to="/guide"
-            >
-              How To Play
-            </Link>
-            <Link
-              className="w-full py-3 text-2xl font-bold text-center text-white border-4 shadow-2xl hover:bg-sky-500 bg-sky-400 rounded-2xl"
-              to="/credits"
-            >
-              Credits
-            </Link>
+            <MyLink to="/game">New Game</MyLink>
+            <MyLink to="/guide">How To Play</MyLink>
+            <MyLink to="/credits">Credits</MyLink>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ export const Wordle = () => {
   usePickRandomWord();
   useKeyboardInput(onSubmitGuess, setTileRow);
 
-  const { volume, setVolume } = useVolume();
+  const { volume, setVolume } = useVolume(localStorage.getItem("volume" || 1));
 
   const changeVolume = (event) => {
     setVolume(event.target.value);
