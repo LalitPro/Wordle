@@ -6,7 +6,6 @@ import { useOnSubmitGuess } from "./hooks";
 import { useCurrentTileRow } from "../tileRow/hook";
 import { AiFillSound } from "react-icons/ai";
 import { useVolume } from "../VolumeContext";
-import { useEffect } from "react";
 
 export const Wordle = () => {
   const onSubmitGuess = useOnSubmitGuess();
@@ -18,9 +17,13 @@ export const Wordle = () => {
   const { volume, setVolume } = useVolume();
 
   const changeVolume = (event) => {
-    setVolume(parseFloat(event.target.value));
+    setVolume(event.target.value);
+    localStorage.setItem("volume", volume);
   };
 
+  addEventListener("'click", () => {
+    console.log("hello");
+  });
   return (
     <div className="relative flex flex-col items-center gap-1">
       <img
@@ -34,19 +37,19 @@ export const Wordle = () => {
         </span>
         Guess today's Word
       </h2>{" "}
-      <div className="w-10 absolute -top-10 right-0 flex flex-col items-center justify-center">
-        <AiFillSound />
+      <div className="absolute right-0 flex flex-col items-center justify-center w-10 -top-10">
+        <AiFillSound className="text-3xl text-yellow-500" />
         <input
           className="w-full"
           type="range"
           value={volume}
           min={0}
           max={1}
-          step={0.1}
+          step={1}
           onChange={changeVolume}
         />
       </div>
-      <div className="flex flex-col items-center justify-center xl:gap-10 xl:flex-row">
+      <div className="flex flex-col items-center justify-center gap-5 xl:gap-10 xl:flex-row">
         <GameBoard />
         <Keyboard />
       </div>

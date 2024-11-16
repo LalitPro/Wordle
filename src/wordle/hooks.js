@@ -1,4 +1,4 @@
-import { useVolume } from "../VolumeContext"; //
+import { useVolume } from "../VolumeContext";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { maxTriesAtom, selectedWordAtom } from "./state";
 import { useCurrentTileRow } from "../tileRow/hook";
@@ -72,6 +72,7 @@ export function usePickRandomWord() {
     const words = allWords;
     const index = Math.floor(Math.random() * words.length);
     setWord(words[index]);
+    localStorage.setItem("hiddenWord", words[index].toUpperCase());
   }, []);
 
   /*const randomWord = axios.get(
@@ -126,6 +127,7 @@ export function useOnSubmitGuess() {
     if (tileRow.length !== selectedWord.length) {
       return;
     }
+
     let userWord = "";
 
     const updatedTileRow = tileRow.map((letter, index) => {
@@ -153,10 +155,11 @@ export function useOnSubmitGuess() {
     }
 
     if (rowIndex >= 5) {
-      setTimeout(() => (window.location.pathname = "over/lost"), 1000);
+      setTimeout(() => (window.location.pathname = "over/lost"), 750);
     }
-    if (userWord === selectedWord.toUpperCase()) {
-      setTimeout(() => (window.location.pathname = "over/win"), 1000);
+    if (userWord == selectedWord.toUpperCase()) {
+      localStorage.setItem("rowIndex", rowIndex + 1);
+      setTimeout(() => (window.location.pathname = "over/win"), 750);
     }
   };
 
@@ -164,7 +167,7 @@ export function useOnSubmitGuess() {
 }
 
 export function useKeyboardInput(onSubmitGuess, updateTileRow) {
-  const { volume } = useVolume(); // Get global volume
+  const { volume } = useVolume();
 
   useEffect(() => {
     const handleKeyDown = (event) => {
