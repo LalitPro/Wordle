@@ -25,7 +25,7 @@ export const Wordle = () => {
     console.log("hello");
   });
   return (
-    <div className="relative flex flex-col items-center gap-1">
+    <div className="relative mt-10 flex flex-col justify-center items-center gap-1">
       <img
         src="./images/title.png"
         className="text-5xl text-center text-white w-60 sm:w-80 md:w-96 xl:w-1/2 white-drop"

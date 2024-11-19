@@ -1,8 +1,7 @@
 import "./tile.css";
 
 export const Tile = ({ letter = "", state = "pending" }) => {
-  let tileClass = `tile w-14 h-14 flex items-center justify-center p-2 m-px text-xl font-semibold text-center border-0 rounded-md
-     sm:p-4 sm:m-0.5 md:p-6 md:m-1 xl:text-2xl xl:p-5 text-lightwhite bg-lightgrayed keyboard-key `;
+  let tileClass = `tile w-14 h-14 flex items-center justify-center border-0 rounded-md  m-px text-xl font-semibold text-center sm:m-0.5 md:m-1 xl:text-2xl text-lightwhite bg-lightgrayed keyboard-key `;
 
   if (state == "correct") {
     tileClass += " bg-green-500 text-white ";
@@ -13,12 +12,12 @@ export const Tile = ({ letter = "", state = "pending" }) => {
   }
 
   return (
-    <div
+    <input
+      type="text"
+      value={letter}
+      data-state={state}
       onInput={(tileClass += " bounce-animation")}
       className={tileClass + " transition-all duration-300 ease-in-out "}
-      data-state={state}
-    >
-      {letter}
-    </div>
+    />
   );
 };

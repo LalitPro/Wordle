@@ -17,14 +17,18 @@ function Home() {
     }
 
     return (
-      <div className="flex flex-col gap-5 p-2 md:gap-9 rounded-3xl sm:p-8 md:p-8 xl:p-16 bg-slate-300">
+      <div className="flex flex-col w-full gap-5 text-5xl md:gap-9 p-6">
         <div className="flex flex-col justify-end sm:items-end sm:justify-center sm:flex-row">
-          <h1 className="text-5xl md:text-7xl">Welcome,</h1>
-          <h2 className="text-4xl md:text-6xl">to Wordle</h2>
+          <h1 className="text-5xl md:text-7xl font-figtree text-fontgray font-extrabold">
+            Welcome to Wordle,
+          </h1>
         </div>
         <div>
           <div className="flex flex-col gap-3 mb-4 md:gap-7">
-            <label htmlFor="userName" className="text-2xl md:text-5xl">
+            <label
+              htmlFor="userName"
+              className="text-2xl md:text-5xl  font-figtree text-fontgray font-medium"
+            >
               What's your Good Name?
             </label>
             <input
@@ -47,16 +51,15 @@ function Home() {
   } else {
     const userName = localStorage.getItem("userName");
     return (
-      <div className="flex flex-col w-full gap-5 p-2 text-5xl md:gap-9 rounded-3xl sm:p-8 md:p-8 xl:p-16 bg-slate-300">
+      <div className="flex flex-col w-full gap-5 text-5xl md:gap-9 p-16">
         <img
           src="./images/title.png"
           className="self-center w-full text-center text-white md:w-1/2 white-drop"
           alt="WORDLE"
         />
         <div className="flex flex-col justify-end text-4xl md:text-6xl sm:items-end sm:justify-center sm:flex-row">
-          <h2>Hi,</h2>
-          <h1 id="heading" className="text-5xl md:text-7xl">
-            {userName}
+          <h1 className="text-5xl  text-fontgray md:text-7xl">
+            Hi, {userName}
           </h1>
         </div>
         <div>

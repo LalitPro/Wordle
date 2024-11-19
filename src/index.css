@@ -1,40 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-#heading {
-  text-shadow: 0 0 1px black;
-  filter: drop-shadow(15px 15px 15px #ffff);
-  animation-name: colorChange;
-  animation-duration: 5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-play-state: running;
-  animation-direction: normal;
-}
-
-@keyframes colorChange {
-  0% {
-    color: #fff;
-  }
-  25% {
-    color: red;
-    filter: drop-shadow(15px 15px 15px red);
-  }
-  50% {
-    color: skyblue;
-    filter: drop-shadow(15px 15px 15px skyblue);
-  }
-  75% {
-    color: greenyellow;
-    filter: drop-shadow(15px 15px 15px greenyellow);
-  }
-  100% {
-    color: orange;
-    filter: drop-shadow(15px 15px 15px orange);
-  }
-}
-
 .white-drop {
   filter: drop-shadow(25px 25px 25px #ffff);
+}
+
+.main-heading {
+  text-align: left;
+  font: normal normal 800 32px/38px Sharp Sans;
+  letter-spacing: 0px;
+  color: #393939;
+  opacity: 1;
+}
+
+.font-figtree {
+  font-family: "Figtree", sans-serif;
 }
