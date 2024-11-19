@@ -17,7 +17,7 @@ export const LetterSetKey = ({ letters }) => {
 
 export const Keyboard = () => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center bg-backblack px-5 py-3">
       <div className="flex">
         <LetterSetKey letters={topLetters} />
       </div>

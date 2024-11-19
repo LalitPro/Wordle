@@ -48,7 +48,7 @@ export const Wordle = () => {
           onChange={changeVolume}
         />
       </div>
-      <div className="flex flex-col items-center justify-center gap-5 xl:gap-10 xl:flex-row">
+      <div className="flex flex-col w-full items-center justify-center gap-5 xl:gap-10 xl:flex-row">
         <GameBoard />
         <Keyboard />
       </div>
