@@ -14,7 +14,7 @@ function App() {
     <div className="flex flex-col items-center justify-center min-h-screen max-w-screen">
       <Navbar />
       <RecoilRoot>
-        <div className="w-full flex-grow   bg-backblue flex items-center mb-auto">
+        <div className="w-full flex-grow justify-center bg-backblue flex items-center mb-auto">
           <Routes>
             <Route path="*" element={<Home />}></Route>{" "}
             <Route path="/game" element={<Wordle />}></Route>

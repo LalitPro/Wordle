@@ -26,17 +26,16 @@ export const Wordle = () => {
   });
   return (
     <div className="relative mt-10 flex flex-col justify-center items-center gap-1">
-      <img
-        src="./images/title.png"
-        className="text-5xl text-center text-white w-60 sm:w-80 md:w-96 xl:w-1/2 white-drop"
-        alt="WORDLE"
-      />
+      <h1 className="text-5xl font-figtree text-white font-extrabold">
+        WORDLE
+      </h1>
       <h2 className="text-center">
+        Hi,
         <span id="heading" className="text-xl">
           {localStorage.getItem("userName")}{" "}
         </span>
         Guess today's Word
-      </h2>{" "}
+      </h2>
       <div className="absolute flex flex-col items-center justify-center w-10 m-5 -right-10 -top-10">
         <AiFillSound className="text-3xl text-yellow-500" />
         <input

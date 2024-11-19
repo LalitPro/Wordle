@@ -34,27 +34,26 @@ function GameOver() {
   const rowIndex = localStorage.getItem("rowIndex") || 1;
 
   return (
-    <div className="flex flex-col w-full gap-5 p-2 md:gap-9 rounded-3xl sm:p-8 md:p-8 xl:p-16 bg-slate-300">
-      <img
-        src="../images/title.png"
-        className="self-center w-full text-5xl text-center text-white md:w-1/2 white-drop"
-        alt="WORDLE"
-      />
+    <div className="flex flex-col w-full gap-5 p-8">
+      <h1 className="text-5xl font-figtree text-center text-white font-extrabold">
+        WORDLE
+      </h1>
       <div className="flex flex-col items-center justify-center">
-        {!win && (
-          <h2 className="text-3xl md:text-5xl">
-            The word is{" "}
-            <span className="font-semibold text-indigo-500">{hiddenWord}</span>,
-          </h2>
-        )}
-        <h1 className="self-center text-5xl text-white justify-self-center md:text-7xl">
-          {userName}
-        </h1>
+        <h2 className="text-3xl font-figtree text-center text-white font-extrabold">
+          The word is{" "}
+          <span className="text-backblack font-extrabold">{hiddenWord}</span>
+        </h2>
+        <h2 className="font-bold text-center text-backblack text-2xl">
+          Thanks for playing today!
+        </h2>
+        <h3 className="text-white text-center text-base mt-4 px-5 mx-10">
+          Want to start tracking your stats and streaks?
+        </h3>
       </div>
 
       <div className="flex flex-col items-center justify-center gap-10 xl:flex-row">
         <>
-          {win && (
+          {/* win && (
             <div className="flex items-center justify-center w-full">
               {rowIndex == 1 && (
                 <div className="flex flex-col items-center justify-center w-full gap-4">
@@ -113,23 +112,18 @@ function GameOver() {
                 </div>
               )}
             </div>
-          )}
+          ) */}
           {!win && (
-            <div className="flex flex-col items-center justify-center w-full gap-4 md:w-96">
-              <img
-                src="../images/Lost.webp"
-                className="shadow-2xl h-60 rounded-3xl shadow-white"
-              />
-              <h2 className="text-2xl md:text-3xl xl:5xl">Try Again,</h2>
-            </div>
+            <div className="flex flex-col items-center justify-center w-full gap-4 md:w-96"></div>
           )}
         </>
-
-        <div className="flex flex-col w-full gap-3 mb-4 md:gap-7">
-          <MyLink to="/game">Play Again</MyLink>
-          <MyLink to="/guide">How To Play</MyLink>
-          <MyLink to="/credits">Credits</MyLink>
-        </div>
+        <MyLink
+          className="bg-cover bg-center text-backblack rounded-full max-w-96"
+          style={{ backgroundImage: 'url("../images/btn.png")' }}
+          to="/game"
+        >
+          Play Again
+        </MyLink>
       </div>
     </div>
   );
