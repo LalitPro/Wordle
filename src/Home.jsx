@@ -55,9 +55,9 @@ function Home() {
     const userName = localStorage.getItem("userName");
     return (
       <div className="flex flex-col w-full gap-5 text-5xl md:gap-9 p-16">
-        <h1 className="text-5xl lg:text-7xl font-figtree text-fontgray font-extrabold">
-            Welcome to Wordle,
-          </h1>
+           <h1 className="text-5xl font-figtree text-white font-extrabold">
+        WORDLE
+      </h1>
         <div className="flex flex-col justify-end text-4xl md:text-6xl sm:items-end sm:justify-center sm:flex-row">
           <h1 className="text-5xl  text-fontgray md:text-7xl">
             Hi, {userName}
