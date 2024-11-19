@@ -11,6 +11,7 @@ export default {
         backblack: "#292929",
         backblue: "#3CBEFF",
         fontgray: "#393939",
+        ajibblue: "#008AB9",
       },
       fontSize: {
         six: "6px",
