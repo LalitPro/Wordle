@@ -45,7 +45,7 @@ function Home() {
               style={{ backgroundImage: 'url("../images/btn.png")' }}
               onClick={setUsername}
             >
-              Play Again
+              Submit
             </button>
           </div>
         </div>
