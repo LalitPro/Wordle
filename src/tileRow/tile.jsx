@@ -19,6 +19,7 @@ export const Tile = forwardRef(
         value={letter}
         maxLength={1}
         data-state={state}
+        disabled
         ref={ref}
         onInput={onInput} // Pass the onInput event
         className={tileClass + " transition-all duration-300 ease-in-out "}
