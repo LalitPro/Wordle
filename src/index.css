@@ -18,7 +18,3 @@
 .font-figtree {
   font-family: "Figtree", sans-serif;
 }
-
-.clip-path-box {
-  clip-path: polygon(0 2%, 100% 0%, 98% 100%, 2% 98%);
-}

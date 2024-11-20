@@ -17,9 +17,12 @@ function Home() {
     }
 
     return (
-      <div className="flex flex-col items-center w-full gap-5 text-5xl md:gap-9 p-6">
-        <div className="flex flex-col justify-center items-center bg-sky-200 w-96 lg:w-1/2 p-10 clip-path-box">
-          <h1 className="text-5xl lg:text-7xl font-figtree text-fontgray font-extrabold">
+      <div
+        style={{ backgroundImage: 'url("../images/Box.png")' }}
+        className="relative flex flex-col items-center justify-center gap-5 p-8 py-16 text-5xl bg-no-repeat bg-cover md:gap-9"
+      >
+        <div className="flex flex-col items-center justify-center p-10 w-96 lg:w-1/3">
+          <h1 className="text-5xl font-extrabold lg:text-7xl font-figtree text-fontgray">
             Welcome to Wordle,
           </h1>
 
@@ -27,7 +30,7 @@ function Home() {
             <div className="flex flex-col gap-3 mb-4 md:gap-7">
               <label
                 htmlFor="userName"
-                className="text-2xl lg:text-5xl font-figtree text-fontgray font-medium"
+                className="text-2xl font-medium lg:text-5xl font-figtree text-fontgray"
               >
                 What's your Good Name?
               </label>
@@ -41,8 +44,8 @@ function Home() {
             </div>
 
             <button
-              className="bg-cover bg-center self-center text-backblack rounded-full px-20 min-w-60 max-w-96"
-              style={{ backgroundImage: 'url("../images/btn.png")' }}
+              className="absolute bottom-0 left-0 right-0 self-center px-20 py-2 text-xl font-extrabold bg-center bg-cover rounded-full justify-self-center font-figtree text-backblack min-w-60 max-w-96"
+              style={{ backgroundImage: 'url("../images/Tab.png")' }}
               onClick={setUsername}
             >
               Play Again
@@ -54,22 +57,36 @@ function Home() {
   } else {
     const userName = localStorage.getItem("userName");
     return (
-      <div className="flex flex-col w-full gap-5 text-5xl md:gap-9 p-16">
-        <img
-          src="./images/title.png"
-          className="self-center w-full text-center text-white md:w-1/2 white-drop"
-          alt="WORDLE"
-        />
+      <div className="flex flex-col w-full gap-5 p-16 text-5xl md:gap-9">
+        <h1 className="text-6xl font-extrabold text-center text-white sm:text-8xl font-figtree">
+          WORDLE
+        </h1>
         <div className="flex flex-col justify-end text-4xl md:text-6xl sm:items-end sm:justify-center sm:flex-row">
-          <h1 className="text-5xl  text-fontgray md:text-7xl">
-            Hi, {userName}
-          </h1>
+          <h1 className="text-5xl text-fontgray md:text-7xl">Hi, {userName}</h1>
         </div>
         <div>
           <div className="flex flex-col gap-3 mb-4 md:gap-7">
-            <MyLink to="/game">New Game</MyLink>
-            <MyLink to="/guide">How To Play</MyLink>
-            <MyLink to="/credits">Credits</MyLink>
+            <MyLink
+              className="self-center px-20 py-2 text-xl font-extrabold bg-center bg-cover rounded-full justify-self-center font-figtree text-backblack min-w-60 max-w-96"
+              style={{ backgroundImage: 'url("../images/Tab.png")' }}
+              to="/game"
+            >
+              New Game
+            </MyLink>
+            <MyLink
+              className="self-center px-20 py-2 text-xl font-extrabold bg-center bg-cover rounded-full justify-self-center font-figtree text-backblack min-w-60 max-w-96"
+              style={{ backgroundImage: 'url("../images/Tab.png")' }}
+              to="/guide"
+            >
+              How To Play
+            </MyLink>
+            <MyLink
+              className="self-center px-20 py-2 text-xl font-extrabold bg-center bg-cover rounded-full justify-self-center font-figtree text-backblack min-w-60 max-w-96"
+              style={{ backgroundImage: 'url("../images/Tab.png")' }}
+              to="/credits"
+            >
+              Credits
+            </MyLink>
           </div>
         </div>
       </div>

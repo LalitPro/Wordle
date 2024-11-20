@@ -35,18 +35,18 @@ function GameOver() {
 
   return (
     <div className="flex flex-col w-full gap-5 p-8">
-      <h1 className="text-5xl font-figtree text-center text-white font-extrabold">
+      <h1 className="text-5xl font-extrabold text-center text-white font-figtree">
         WORDLE
       </h1>
       <div className="flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-figtree text-center text-white font-extrabold">
+        <h2 className="text-3xl font-extrabold text-center text-white font-figtree">
           The word is{" "}
-          <span className="text-backblack font-extrabold">{hiddenWord}</span>
+          <span className="font-extrabold text-backblack">{hiddenWord}</span>
         </h2>
-        <h2 className="font-bold text-center text-backblack text-2xl">
+        <h2 className="text-2xl font-bold text-center text-backblack">
           Thanks for playing today!
         </h2>
-        <h3 className="text-white text-center text-base mt-4 px-5 mx-10">
+        <h3 className="px-5 mx-10 mt-4 text-base text-center text-white">
           Want to start tracking your stats and streaks?
         </h3>
       </div>
@@ -118,8 +118,8 @@ function GameOver() {
           )}
         </>
         <MyLink
-          className="bg-cover bg-center text-backblack rounded-full max-w-96"
-          style={{ backgroundImage: 'url("../images/btn.png")' }}
+          className="self-center px-20 py-2 text-xl font-extrabold bg-center bg-cover rounded-full justify-self-center font-figtree text-backblack min-w-60 max-w-96"
+          style={{ backgroundImage: 'url("../images/Tab.png")' }}
           to="/game"
         >
           Play Again

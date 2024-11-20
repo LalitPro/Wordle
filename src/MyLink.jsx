@@ -6,7 +6,7 @@ function MyLink({ to, children, className, style, ...props }) {
     <Link
       style={style}
       className={
-        "w-full py-3 text-2xl font-bold text-center text-white border-2 shadow-2xl hover:bg-sky-500 bg-green-400 rounded-2xl " +
+        "w-full py-3 text-2xl font-bold text-center text-backblack shadow-2xl hover:bg-sky-500 bg-green-400 rounded-2xl " +
         className +
         " "
       }
