@@ -48,7 +48,7 @@ function Home() {
               style={{ backgroundImage: 'url("../images/Tab.png")' }}
               onClick={setUsername}
             >
-              Play Again
+              Submit
             </button>
           </div>
         </div>
@@ -61,6 +61,7 @@ function Home() {
         <h1 className="text-6xl font-extrabold text-center text-white sm:text-8xl font-figtree">
           WORDLE
         </h1>
+
         <div className="flex flex-col justify-end text-4xl md:text-6xl sm:items-end sm:justify-center sm:flex-row">
           <h1 className="text-5xl text-fontgray md:text-7xl">Hi, {userName}</h1>
         </div>
