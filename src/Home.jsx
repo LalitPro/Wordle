@@ -19,7 +19,7 @@ function Home() {
     return (
       <div
         style={{ backgroundImage: 'url("../images/Box.png")' }}
-        className="relative flex flex-col items-center justify-center gap-5 p-8 py-16 text-5xl bg-no-repeat bg-cover md:gap-9"
+        className="relative flex flex-col items-center justify-center gap-5 p-8 py-16 text-5xl bg-no-repeat bg-cover xl:px-0 xl:py-24 md:gap-9"
       >
         <div className="flex flex-col items-center justify-center p-10 w-96 lg:w-1/3">
           <h1 className="text-5xl font-extrabold lg:text-7xl font-figtree text-fontgray">
