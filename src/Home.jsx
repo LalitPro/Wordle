@@ -57,7 +57,7 @@ function Home() {
   } else {
     const userName = localStorage.getItem("userName");
     return (
-      <div className="flex flex-col w-full gap-5 p-16 text-5xl md:gap-9">
+      <div className="flex flex-col w-full gap-5 bg-transparent bg-cover text5xl md:p-20 md:px-40 md:gap-9 home-bg">
         <h1 className="text-6xl font-extrabold text-center text-white sm:text-8xl font-figtree">
           WORDLE
         </h1>
@@ -87,6 +87,13 @@ function Home() {
               to="/credits"
             >
               Credits
+            </MyLink>
+            <MyLink
+              className="self-center px-20 py-2 text-xl font-extrabold bg-center bg-cover rounded-full justify-self-center font-figtree text-backblack min-w-60 max-w-96"
+              style={{ backgroundImage: 'url("../images/Tab.png")' }}
+              to="/aboutme"
+            >
+              About Me
             </MyLink>
           </div>
         </div>

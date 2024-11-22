@@ -18,3 +18,9 @@
 .font-figtree {
   font-family: "Figtree", sans-serif;
 }
+
+@media (min-width: 640px) {
+  .home-bg {
+    background-image: 'url("./images/Box.png")';
+  }
+}
