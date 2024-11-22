@@ -51,74 +51,9 @@ function GameOver() {
         </h3>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-10 xl:flex-row">
-        <>
-          {/* win && (
-            <div className="flex items-center justify-center w-full">
-              {rowIndex == 1 && (
-                <div className="flex flex-col items-center justify-center w-full gap-4">
-                  <img
-                    src="../images/1st.gif"
-                    className="shadow-2xl h-60 rounded-3xl shadow-white"
-                  />
-                  <h2 className="text-3xl md:text-5xl">Genuis Man,</h2>
-                </div>
-              )}
-              {rowIndex == 2 && (
-                <div className="flex flex-col items-center justify-center w-full gap-4">
-                  <img
-                    src="../images/2nd.gif"
-                    className="shadow-2xl h-60 rounded-3xl shadow-white"
-                  />
-                  <h2 className="text-3xl md:text-5xl">
-                    Excellence Performed,
-                  </h2>
-                </div>
-              )}
-              {rowIndex == 3 && (
-                <div className="flex flex-col items-center justify-center w-full gap-4">
-                  <img
-                    src="../images/3rd.gif"
-                    className="shadow-2xl h-60 rounded-3xl shadow-white"
-                  />
-                  <h2 className="text-3xl md:text-5xl">Great Play,</h2>
-                </div>
-              )}
-              {rowIndex == 4 && (
-                <div className="flex flex-col items-center justify-center w-full gap-4">
-                  <img
-                    src="../images/4th.gif"
-                    className="shadow-2xl h-60 rounded-3xl shadow-white"
-                  />
-                  <h2 className="text-3xl md:text-5xl">Minded Person,,</h2>
-                </div>
-              )}
-              {rowIndex == 5 && (
-                <div className="flex flex-col items-center justify-center w-full gap-4">
-                  <img
-                    src="../images/5th.gif"
-                    className="shadow-2xl h-60 rounded-3xl shadow-white"
-                  />
-                  <h2 className="text-3xl md:text-5xl">Guess Guess and Win,</h2>
-                </div>
-              )}
-              {rowIndex == 6 && (
-                <div className="flex flex-col items-center justify-center w-full gap-4">
-                  <img
-                    src="../images/6th.gif"
-                    className="shadow-2xl h-60 rounded-3xl shadow-white"
-                  />
-                  <h2 className="text-3xl md:text-5xl">Never Lost,</h2>
-                </div>
-              )}
-            </div>
-          ) */}
-          {!win && (
-            <div className="flex flex-col items-center justify-center w-full gap-4 md:w-96"></div>
-          )}
-        </>
+      <div className="flex flex-col items-center justify-center w-full">
         <MyLink
-          className="self-center px-20 py-2 text-xl font-extrabold bg-center bg-cover rounded-full justify-self-center font-figtree text-backblack min-w-60 max-w-96"
+          className="px-20 py-2 my-5 text-xl font-extrabold bg-center bg-cover rounded-full font-figtree text-backblack min-w-60 max-w-96"
           style={{ backgroundImage: 'url("../images/Tab.png")' }}
           to="/game"
         >
