@@ -11,76 +11,30 @@ function AboutMe() {
       >
         Go Back
       </Link>
-
-      <section className="px-4 py-5 mb-8 md:px-20">
-        <h2 className="text-xl font-semibold text-blue-600">About Me</h2>
-        <p className="mt-2">
-          <strong>Hi, I'm Lalit Kumar Yadav,</strong> a student in{" "}
-          <strong>9th grade</strong> at{" "}
-          <strong>Govt. High School Bhatti.</strong>
-        </p>
-
-        <h3 className="mt-4 text-lg font-semibold text-gray-700">
-          My Journey into Coding
-        </h3>
-        <p className="mt-2 text-justify">
-          My coding journey started when I was 12 years old, experimenting with{" "}
-          <strong>Visual Basic</strong>. Although I didn’t master it, it sparked
-          my curiosity for programming.
-        </p>
-        <p className="mt-2 text-justify">
-          In <strong>September</strong>, I participated in the{" "}
-          <strong>TCS Rural IT Quiz</strong> and became the{" "}
-          <strong>Runner-up</strong> in the Regional Finals at the National
-          Level, which motivated me to explore technology further.
-        </p>
-        <h2 className="text-xl font-semibold text-blue-600">
-          How I’m Learning Coding
-        </h2>
-        <p className="mt-2 text-justify">
-          A few months ago, our SDM launched an initiative called{" "}
-          <strong>"Coding for All"</strong>, where graduates from{" "}
-          <strong>IIT Delhi</strong> introduced us to web development. This
-          program has been a transformative experience for me.
-        </p>
-        <p className="mt-2">So far, I’ve learned:</p>
-        <ul className="mt-2 ml-6 text-gray-700 list-disc">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>Tailwind CSS</li>
-          <li>React</li>
-          <li>Git & GitHub</li>
-          <li>Deployment on Netlify</li>
-        </ul>
-        <p className="mt-2">
-          The course is ongoing, and I'm excited to keep learning and building
-          projects like this! If you're interested in learning coding, you can
-          join the program at <span> </span>
-          <a
-            href="https://www.codeyogi.io"
-            target="_blank"
-            className="underline text-lightwhite"
-          >
-            www.codeyogi.io
-          </a>
-          .
-        </p>
-      </section>
-
-      <footer className="w-full py-4 text-white bg-gray-800">
-        <div className="container mx-auto text-center">
-          <p className="text-sm">
-            Join{" "}
-            <strong>
-              <a href="https://codeyogi.io" target="_blank">
-                Codeyogi
-              </a>
-            </strong>{" "}
-            today to start your coding journey!
-          </p>
-        </div>
-      </footer>
+      <p className="p-3 text-xl md:p-10">
+        My name is Lalit Kumar Yadav I am studying in class 9th. My school name
+        is Govt. High School Bhatti. I belong to a rural area and in my class I
+        study in Hindi medium my subjects are Hindi, English, Sanskrit,
+        Mathematics, Social Science, and Science. I live in Village Nayagaon
+        Teshil Itarsi District Narmadapuram My family has 09 members
+        grandfather, grandmother, Uncle, aunty, and my brother and sister. My
+        father works in a private service his work is related to computer. He
+        works in Word and Excel. He has done PGDCA.  My mother is a housewife.
+        In the beginning, my father taught me about coding in Visual Basic. From
+        there, I got interested in coding and also observed how computer
+        applications work. Then  I learned that they all work in a system:
+        software and hardware. This sparked my curiosity and interest in
+        learning more about coding. At the end of July, our school Principal,
+        sir, introduced us to the Team Code Yogi initiative for students from
+        rural areas. Our SDM, IAS    Mr. T. Prateek Rao sir, started the
+        initiative. Apart from this, in September, I participated in an Rural IT
+        Rural Quiz organized at Bhopal and got an II position. I have learned
+        HTML, CSS, JavaScript, Tailwind CSS, and React.  From Codeyogi. At home,
+        I work on my mobile and PC I have completed 50 levels of the telegram
+        course and 25 lectures of the advanced playlist. Future Plan: I want to
+        be a software engineer. And to work in the software development and web
+        development field.
+      </p>
     </div>
   );
 }
