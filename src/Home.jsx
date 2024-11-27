@@ -19,10 +19,10 @@ function Home() {
     return (
       <div
         style={{ backgroundImage: 'url("../images/Box.png")' }}
-        className="relative flex flex-col items-center justify-center gap-5 p-8 py-16 overflow-x-hidden text-5xl bg-left bg-no-repeat bg-cover xs:bg-center xl:px-0 xl:py-24 md:gap-9"
+        className="relative flex flex-col items-center self-center justify-center gap-5 py-12 overflow-x-hidden text-5xl bg-left bg-no-repeat bg-cover md:max-w-screen-xs max-w-96 xs:bg-center md:gap-9"
       >
-        <div className="flex flex-col items-center justify-center p-10 w-96 lg:w-1/3">
-          <h1 className="text-5xl font-extrabold lg:text-7xl font-figtree text-fontgray">
+        <div className="flex flex-col items-center justify-center p-10">
+          <h1 className="text-3xl font-extrabold md:text-4xl font-figtree text-fontgray">
             Welcome to Wordle,
           </h1>
 
@@ -30,14 +30,14 @@ function Home() {
             <div className="flex flex-col gap-3 mb-4 md:gap-7">
               <label
                 htmlFor="userName"
-                className="text-2xl font-medium lg:text-5xl font-figtree text-fontgray"
+                className="text-xl font-medium md:text-2xl font-figtree text-fontgray"
               >
                 What's your Good Name?
               </label>
               <input
                 type="text"
                 id="userName"
-                className="px-4 py-2 text-2xl text-black rounded-full"
+                className="px-4 py-2 text-lg text-black rounded-full md:text-xl"
                 placeholder="Enter Your Name Here"
                 value={value}
               />
