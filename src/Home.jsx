@@ -63,7 +63,9 @@ function Home() {
         </h1>
 
         <div className="flex flex-col justify-end text-4xl md:text-6xl sm:items-end sm:justify-center sm:flex-row">
-          <h1 className="text-5xl text-fontgray md:text-7xl">Hi, {userName}</h1>
+          <h1 className="text-5xl text-center text-fontgray md:text-7xl">
+            Hi, <span className="font-bold">{userName}</span>
+          </h1>
         </div>
         <div>
           <div className="flex flex-col gap-3 mb-4 md:gap-7">
