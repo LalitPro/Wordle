@@ -4,7 +4,7 @@ import MyLink from "./MyLink";
 
 function Credits() {
   return (
-    <div className="relative flex flex-col items-center justify-center min-w-full min-h-full">
+    <div className="relative flex flex-col self-start h-full min-w-full">
       <Link
         to="/home"
         className="absolute top-0 right-0 self-center px-2 py-2 m-1 text-sm font-extrabold text-center bg-center bg-cover rounded-full md:px-20 md:m-5 md:text-xl justify-self-center font-figtree text-backblack min-w-60 max-w-96"
