@@ -151,7 +151,7 @@ export function useOnSubmitGuess() {
       updateKeyboardState(updatedTileRow);
       setRowIndex(rowIndex + 1);
     } else {
-      alert("Invalid word! Please enter a valid word.");
+      localStorage.setItem("invalid", "dikhana Hai");
     }
 
     if (rowIndex >= 5) {

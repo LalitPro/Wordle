@@ -6,8 +6,11 @@ import { useOnSubmitGuess } from "./hooks";
 import { useCurrentTileRow } from "../tileRow/hook";
 import { AiFillSound } from "react-icons/ai";
 import { useVolume } from "../VolumeContext";
+import { useEffect, useState } from "react";
 
 export const Wordle = () => {
+  const [invalid, setInvalid] = useState(false);
+
   const onSubmitGuess = useOnSubmitGuess();
   const [tileRow, setTileRow] = useCurrentTileRow();
 
@@ -21,12 +24,18 @@ export const Wordle = () => {
     localStorage.setItem("volume", volume);
   };
 
-  addEventListener("'click", () => {
-    console.log("hello");
+  addEventListener("click", () => {
+    setInvalid(localStorage.getItem("invalid"));
   });
+
+  addEventListener("keypress", () => {
+    setInvalid(localStorage.getItem("invalid"));
+    useKeyboardInput(useOnSubmitGuess, setTileRow);
+  });
+
   return (
     <div className="relative flex flex-col items-center justify-center max-w-full gap-1 mt-10 overflow-x-hidden">
-      <h1 className="text-5xl font-extrabold text-white font-figtree">
+      <h1 className="text-5xl font-extrabold text-white lg:text-8xl font-figtree">
         WORDLE
       </h1>
       <h2 className="text-center">
@@ -52,6 +61,29 @@ export const Wordle = () => {
         <GameBoard />
         <Keyboard />
       </div>
+      {invalid && (
+        <div className="fixed inset-0 z-10 flex items-center justify-center duration-100 bg-gray-800 bg-opacity-50">
+          <div className="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-lg w-96">
+            <button
+              type="button"
+              className="px-4 py-2 m-3 text-sm font-medium duration-100 bg-white border border-gray-300 rounded-md shadow-sm text-md hover:scale-105 text-blue-gray-900 hover:bg-blue-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
+              onClick={() => {
+                localStorage.setItem("invalid", "");
+                setInvalid(false);
+              }}
+            >
+              X
+            </button>
+
+            <h3 className="mb-5 text-2xl font-medium leading-6 text-red-500">
+              Invalid Word!
+            </h3>
+            <h4 className="mb-5 text-xl font-medium leading-6 text-center text-gray-500">
+              आपने जो WORD लिखा है वो मान्य (Valid) नहीं हैं{" "}
+            </h4>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
