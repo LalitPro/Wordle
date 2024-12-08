@@ -37,8 +37,8 @@ function AboutMe() {
         React. At home, I practice on my mobile and PC. I have completed 50
         levels of a Telegram course and 50% of advance React playlist. Future
         Plan: I aspire to become a software engineer and work in the fields of
-        software development and web development.
-      </p>
+        software development and web development
+ </p>
     </div>
   );
 }
