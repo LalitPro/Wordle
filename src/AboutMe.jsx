@@ -6,7 +6,7 @@ function AboutMe() {
     <div className="flex flex-col items-center justify-center min-w-full min-h-full">
       <Link
         to="/home"
-        className="self-center px-2 py-2 m-1 text-sm font-extrabold text-center bg-center bg-cover rounded-full md:px-20 md:m-5 md:text-xl justify-self-center font-figtree text-backblack min-w-60 max-w-96"
+        className="self-center px-2 py-2 m-1 text-sm font-extrabold text-center duration-150 bg-center bg-cover rounded-full hover:scale-90 md:px-20 md:m-5 md:text-xl justify-self-center font-figtree text-backblack min-w-60 max-w-96"
         style={{ backgroundImage: 'url("../images/Tab.png")' }}
       >
         Go Back
