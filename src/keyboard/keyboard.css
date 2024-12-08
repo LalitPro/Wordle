@@ -23,7 +23,7 @@
 }
 
 .key {
-  transition: transform 0.1s ease;
+  transition: transform 0.24s ease;
 }
 
 .key:active {

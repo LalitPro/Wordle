@@ -7,7 +7,7 @@ function Credits() {
     <div className="relative flex flex-col self-start h-full min-w-full">
       <Link
         to="/home"
-        className="absolute top-0 right-0 self-center px-2 py-2 m-1 text-sm font-extrabold text-center bg-center bg-cover rounded-full md:px-20 md:m-5 md:text-xl justify-self-center font-figtree text-backblack min-w-60 max-w-96"
+        className="absolute top-0 right-0 self-center px-2 py-2 m-1 text-sm font-extrabold text-center duration-150 bg-center bg-cover rounded-full hover:scale-90 md:px-20 md:m-5 md:text-xl justify-self-center font-figtree text-backblack min-w-60 max-w-96"
         style={{ backgroundImage: 'url("../images/Tab.png")' }}
       >
         Go Back
@@ -33,13 +33,15 @@ function Credits() {
           </p>
         </section>
 
-        <MyLink
-          className="self-center px-20 py-2 text-xl font-extrabold bg-center bg-cover rounded-full justify-self-center font-figtree text-backblack min-w-60 max-w-96"
-          style={{ backgroundImage: 'url("../images/Tab.png")' }}
-          to="/aboutme"
-        >
-          About Me
-        </MyLink>
+        <div className="duration-150  hover:scale-90">
+          <MyLink
+            className="self-center px-20 py-2 text-xl font-extrabold duration-150 bg-center bg-cover rounded-full hover:scale-90 justify-self-center font-figtree text-backblack min-w-60 max-w-96"
+            style={{ backgroundImage: 'url("../images/Tab.png")' }}
+            to="/aboutme"
+          >
+            About Me
+          </MyLink>
+        </div>
       </main>
     </div>
   );
