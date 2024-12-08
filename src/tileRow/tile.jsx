@@ -22,7 +22,10 @@ export const Tile = forwardRef(
         disabled
         ref={ref}
         onInput={onInput} // Pass the onInput event
-        className={tileClass + " transition-all duration-300 ease-in-out "}
+        className={
+          tileClass +
+          " transition-all duration-300 ease-in-out bounce-animation "
+        }
       />
     );
   }

@@ -25,7 +25,7 @@ export const Wordle = () => {
     console.log("hello");
   });
   return (
-    <div className="relative flex flex-col items-center justify-center gap-1 mt-10">
+    <div className="relative flex flex-col items-center justify-center max-w-full gap-1 mt-10 overflow-x-hidden">
       <h1 className="text-5xl font-extrabold text-white font-figtree">
         WORDLE
       </h1>
@@ -36,7 +36,7 @@ export const Wordle = () => {
         </span>
         Guess today's Word
       </h2>
-      <div className="absolute flex flex-col items-center justify-center w-10 right-10 -top-10">
+      <div className="absolute z-50 flex flex-col items-center justify-center w-10 right-10 top-10">
         <AiFillSound className="text-3xl text-yellow-500" />
         <input
           className="w-full"

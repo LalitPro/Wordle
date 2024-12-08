@@ -4,14 +4,17 @@
 
 .tile[data-state="incorrect"] {
   background-color: #3e4247;
+  animation: chotaBada 0.75s ease-in-out;
 }
 
 .tile[data-state="partially"] {
   background-color: #f2b84b;
+  animation: chotaBada 0.75s ease-in-out;
 }
 
 .tile[data-state="correct"] {
   background-color: #86bf5e;
+  animation: chotaBada 0.75s ease-in-out;
 }
 
 @keyframes bounce {
@@ -23,6 +26,18 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes chotaBada {
+  0% {
+    height: 56px;
+  }
+  50% {
+    height: 0;
+  }
+  100% {
+    height: 56px;
   }
 }
 

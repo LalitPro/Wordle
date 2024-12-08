@@ -43,6 +43,88 @@ function GameOver() {
           The word is{" "}
           <span className="font-extrabold text-backblack">{hiddenWord}</span>
         </h2>
+
+        {!win && (
+          <>
+            <h2 className="text-3xl font-semibold text-gray-950 md:text-5xl font-figtree">
+              You Lost,
+            </h2>
+            <h3 className="text-2xl font-semibold text-gray-900 md:text-4xl font-figtree">
+              Try Again,
+            </h3>
+          </>
+        )}
+
+        {win && (
+          <div className="flex items-center justify-center w-full">
+            {rowIndex == 1 && (
+              <div className="flex flex-col items-center justify-center w-full gap-4">
+                <img
+                  src="../images/1st.gif"
+                  className="shadow-2xl h-60 rounded-3xl shadow-white"
+                />
+                <h2 className="text-3xl font-semibold text-gray-900 md:text-5xl font-figtree">
+                  Genuis Man,
+                </h2>
+              </div>
+            )}
+            {rowIndex == 2 && (
+              <div className="flex flex-col items-center justify-center w-full gap-4">
+                <img
+                  src="../images/2nd.gif"
+                  className="shadow-2xl h-60 rounded-3xl shadow-white"
+                />
+                <h2 className="text-3xl font-semibold text-gray-900 md:text-5xl font-figtree">
+                  Excellence Performed,
+                </h2>
+              </div>
+            )}
+            {rowIndex == 3 && (
+              <div className="flex flex-col items-center justify-center w-full gap-4">
+                <img
+                  src="../images/3rd.gif"
+                  className="shadow-2xl h-60 rounded-3xl shadow-white"
+                />
+                <h2 className="text-3xl font-semibold text-gray-900 md:text-5xl font-figtree">
+                  Great Play,
+                </h2>
+              </div>
+            )}
+            {rowIndex == 4 && (
+              <div className="flex flex-col items-center justify-center w-full gap-4">
+                <img
+                  src="../images/4th.gif"
+                  className="shadow-2xl h-60 rounded-3xl shadow-white"
+                />
+                <h2 className="text-3xl font-semibold text-gray-900 md:text-5xl font-figtree">
+                  Minded Person,,
+                </h2>
+              </div>
+            )}
+            {rowIndex == 5 && (
+              <div className="flex flex-col items-center justify-center w-full gap-4">
+                <img
+                  src="../images/5th.gif"
+                  className="shadow-2xl h-60 rounded-3xl shadow-white"
+                />
+                <h2 className="text-3xl font-semibold text-gray-900 md:text-5xl font-figtree">
+                  Guess Guess and Win,
+                </h2>
+              </div>
+            )}
+            {rowIndex == 6 && (
+              <div className="flex flex-col items-center justify-center w-full gap-4">
+                <img
+                  src="../images/6th.gif"
+                  className="shadow-2xl h-60 rounded-3xl shadow-white"
+                />
+                <h2 className="text-3xl font-semibold text-gray-900 md:text-5xl font-figtree">
+                  Never Lost,
+                </h2>
+              </div>
+            )}
+          </div>
+        )}
         <h2 className="text-2xl font-bold text-center text-backblack">
           Thanks for playing today!
         </h2>
