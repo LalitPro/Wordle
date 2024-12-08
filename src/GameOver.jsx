@@ -45,18 +45,18 @@ function GameOver() {
         </h2>
 
         {!win && (
-          <>
-            <h2 className="text-3xl font-semibold text-gray-950 md:text-5xl font-figtree">
+          <div className="my-5 space-y-3 text-center">
+            <h2 className="text-3xl font-bold text-gray-800 md:text-5xl font-figtree">
               You Lost,
             </h2>
             <h3 className="text-2xl font-semibold text-gray-900 md:text-4xl font-figtree">
               Try Again,
             </h3>
-          </>
+          </div>
         )}
 
         {win && (
-          <div className="flex items-center justify-center w-full">
+          <div className="flex items-center justify-center w-full my-2">
             {rowIndex == 1 && (
               <div className="flex flex-col items-center justify-center w-full gap-4">
                 <img
