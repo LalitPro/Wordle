@@ -33,9 +33,8 @@ function AboutMe() {
         empowering students from rural areas. This initiative was started by SDM
         IAS Mr. T. Prateek Rao. In September, I participated in a Rural IT Quiz
         organized in Bhopal and secured the second position. Through the Code
-        Yogi program, I have learned HTML, CSS, JavaScript, Tailwind CSS, and
-        React. At home, I practice on my mobile and PC. I have completed 100
-        levels of the Coding Course.
+        Yogi program, I have learned HTML, CSS, JavaScript, Tailwind CSS, React, TypeScript, OOPS, Redux and many more JS Libraries. At home, I practice on my mobile and PC. I have completed 100
+        levels of Codeyogi's Coding Course.
         <br/>
         Future Plan: I aspire to become a software engineer and work in the fields of
         software development and web development
