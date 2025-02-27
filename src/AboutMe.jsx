@@ -20,7 +20,7 @@ function AboutMe() {
         grandmother, uncle, aunt, my brother, my sister, and me. My father works
         in a private service related to computers. He is proficient in Word and
         Excel and has completed a PGDCA. My mother is a housewife. I was
-        introduced to computers in 2018 when a laptop was brought to our home,
+        introduced to computers in 2018 when a computer was brought to our home,
         and I was around 8 years old. My father initially taught me basic
         programming concepts in Visual Basic and VB.NET at a surface level,
         sparking my curiosity about how computer applications work. Having a
@@ -28,15 +28,16 @@ function AboutMe() {
         Photoshop, gaining confidence in using these tools. Over time, I
         developed skills in image editing and began understanding how software
         and hardware systems interact, further deepening my interest in coding
-        and technology. At the end of July, our school Principal, sir,
+        and technology. At the end of July 2024, our school Principal, sir,
         introduced us to the Team Code Yogi initiative, which focuses on
         empowering students from rural areas. This initiative was started by SDM
         IAS Mr. T. Prateek Rao. In September, I participated in a Rural IT Quiz
         organized in Bhopal and secured the second position. Through the Code
         Yogi program, I have learned HTML, CSS, JavaScript, Tailwind CSS, and
-        React. At home, I practice on my mobile and PC. I have completed 50
-        levels of a Telegram course and 50% of advance React playlist. Future
-        Plan: I aspire to become a software engineer and work in the fields of
+        React. At home, I practice on my mobile and PC. I have completed 100
+        levels of the Coding Course.
+        <br/>
+        Future Plan: I aspire to become a software engineer and work in the fields of
         software development and web development
  </p>
     </div>
