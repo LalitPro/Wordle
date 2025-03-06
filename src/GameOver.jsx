@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import MyLink from "./MyLink";
+import { selectedWordAtom } from "./wordle/state";
+import { useRecoilValue } from "recoil";
+import { VolumeContext } from "./Contexts/VolumeContext";
 
 function GameOver() {
   const path = window.location.pathname;
+
+  const { volume } = useContext(VolumeContext);
 
   console.log("path is:", path);
 
@@ -10,22 +15,14 @@ function GameOver() {
 
   if (path == "/over/win") {
     const gameWin = new Audio("../audios/gameWin.mp3");
-    gameWin.volume = localStorage.getItem("volume");
-    if (gameWin.volume == 0) {
-      gameWin.volume = 1;
-    } else {
-      gameWin.volume = 0;
-    }
+    gameWin.volume = volume;
+
     gameWin.play();
   } else {
     const gameLost = new Audio("../audios/gameLost.mp3");
     gameLost.play();
-    gameLost.volume = localStorage.getItem("volume");
-    if (gameLost.volume == 0) {
-      gameLost.volume = 1;
-    } else {
-      gameLost.volume = 0;
-    }
+    gameLost.volume = volume;
+
     win = false;
   }
 
@@ -40,7 +37,7 @@ function GameOver() {
       </h1>
       <div className="flex flex-col items-center justify-center">
         <h2 className="text-3xl font-extrabold text-center text-white font-figtree">
-          The word is{" "}
+          The word is {""}
           <span className="font-extrabold text-backblack">{hiddenWord}</span>
         </h2>
 

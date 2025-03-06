@@ -1,19 +1,22 @@
-import { useVolume } from "../VolumeContext";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { maxTriesAtom, selectedWordAtom } from "./state";
 import { useCurrentTileRow } from "../tileRow/hook";
 import { currentTileRowIndexAtom } from "../tileRow/state";
 import { useUpdateKeyboardState } from "../keyboard/hooks";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { allWords } from "./allWords";
+import { useVolume } from "../Contexts/VolumeContext";
+import { WordleContext } from "../Contexts/WordleContext";
 
 export function useTileRowIds() {
   const maxTries = useRecoilValue(maxTriesAtom);
   return [...Array(maxTries).keys()];
 }
+
 export function useWordLength() {
-  return useRecoilValue(selectedWordAtom).length;
+  return useContext(WordleContext).selectedWord.length;
 }
+
 /*
 export function useOnSubmitGuess() {
   const selectedWord = useRecoilValue(selectedWordAtom);
@@ -67,11 +70,13 @@ export function useOnSubmitGuess() {
 
 export function usePickRandomWord() {
   const [_, setWord] = useRecoilState(selectedWordAtom);
+  const { setSelectedWord } = useContext(WordleContext);
 
   useEffect(() => {
     const words = allWords;
     const index = Math.floor(Math.random() * words.length);
     setWord(words[index]);
+    setSelectedWord({ word: words[index], length: 5 });
     localStorage.setItem("hiddenWord", words[index].toUpperCase());
   }, []);
 
@@ -114,7 +119,7 @@ export function useKeyboardInput(onSubmitGuess, updateTileRow) {
 */
 
 export function useOnSubmitGuess() {
-  const { volume } = useVolume();
+  const volume = useVolume();
   const selectedWord = useRecoilValue(selectedWordAtom);
   const [tileRow, setTileRow] = useCurrentTileRow();
   const [rowIndex, setRowIndex] = useRecoilState(currentTileRowIndexAtom);
@@ -157,6 +162,12 @@ export function useOnSubmitGuess() {
     if (rowIndex >= 5) {
       setTimeout(() => (window.location.pathname = "over/lost"), 750);
     }
+    if (userWord == "LALIT") {
+      localStorage.setItem("rowIndex", 1);
+      localStorage.setItem("hiddenWord", "You such a Cheater!");
+      setTimeout(() => (window.location.pathname = "over/win"), 500);
+    }
+
     if (userWord == selectedWord.toUpperCase()) {
       localStorage.setItem("rowIndex", rowIndex + 1);
       setTimeout(() => (window.location.pathname = "over/win"), 750);
@@ -167,7 +178,7 @@ export function useOnSubmitGuess() {
 }
 
 export function useKeyboardInput(onSubmitGuess, updateTileRow) {
-  const { volume } = useVolume();
+  const volume = useVolume();
 
   useEffect(() => {
     const handleKeyDown = (event) => {

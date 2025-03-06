@@ -5,19 +5,36 @@ import { useKeyboardInput } from "./hooks"; // adjust path as necessary
 import { useOnSubmitGuess } from "./hooks";
 import { useCurrentTileRow } from "../tileRow/hook";
 import { AiFillSound } from "react-icons/ai";
-import { useVolume } from "../VolumeContext";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { selectedWordAtom } from "./state";
+import { VolumeContext } from "../Contexts/VolumeContext";
+import { WordleContext } from "../Contexts/WordleContext";
+import getWordHint from "../api";
 
 export const Wordle = () => {
   const [invalid, setInvalid] = useState(false);
+
+  const [hint, setHint] = useState();
+
+  const selectedWord = useContext(WordleContext).selectedWord.word;
+
+  useEffect(() => {
+    async function getSethint() {
+      const hint = await getWordHint(selectedWord);
+      setHint(hint);
+    }
+
+    getSethint();
+  }, [selectedWord]);
+
+  const { volume, setVolume } = useContext(VolumeContext);
 
   const onSubmitGuess = useOnSubmitGuess();
   const [tileRow, setTileRow] = useCurrentTileRow();
 
   usePickRandomWord();
   useKeyboardInput(onSubmitGuess, setTileRow);
-
-  const { volume, setVolume } = useVolume(localStorage.getItem("volume" || 1));
 
   const changeVolume = (event) => {
     setVolume(event.target.value);
@@ -45,7 +62,7 @@ export const Wordle = () => {
         </span>
         Guess today's Word
       </h2>
-      <div className="absolute z-50 flex flex-col items-center justify-center w-10 right-10 top-10">
+      <div className="absolute z-50 flex flex-col items-center justify-center w-10 right-5 top-10">
         <AiFillSound className="text-3xl text-yellow-500" />
         <input
           className="w-full"
@@ -57,6 +74,9 @@ export const Wordle = () => {
           onChange={changeVolume}
         />
       </div>
+      <h2 className="text-center text-white">
+        <span className="text-2xl">Hint: {hint ? hint : "Loading..."}</span>
+      </h2>
       <div className="flex flex-col items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
         <GameBoard />
         <Keyboard />

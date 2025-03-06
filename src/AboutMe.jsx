@@ -11,7 +11,7 @@ function AboutMe() {
       >
         Go Back
       </Link>
-      <p className="p-3 text-xl md:p-10">
+      <p className="p-3 text-xl text-white md:p-10">
         My name is Lalit Kumar Yadav. I am studying in Class 9 at Govt. High
         School Bhatti. I belong to a rural area and study in a Hindi medium
         school. My subjects are Hindi, English, Sanskrit, Mathematics, Social
@@ -34,10 +34,10 @@ function AboutMe() {
         IAS Mr. T. Prateek Rao. In September, I participated in a Rural IT Quiz
         organized in Bhopal and secured the second position. Through the Code
         Yogi program, I have learned HTML, CSS, JavaScript, Tailwind CSS, and
-        React. At home, I practice on my mobile and PC. I have completed 50
-        levels of a Telegram course and 50% of advance React playlist. Future
-        Plan: I aspire to become a software engineer and work in the fields of
-        software development and web development.
+        React. At home, I practice on my mobile and PC. I have completed 100
+        levels of a Telegram course.
+        <br /> Future Plan: I aspire to become a software engineer and work in
+        the fields of software development and web development.
       </p>
     </div>
   );

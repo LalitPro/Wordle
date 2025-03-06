@@ -1,13 +1,15 @@
-import { useRecoilState, useRecoilValue } from "recoil";
-import { keyboardState } from "./state";
 import {
   useAddLettertoCurrentTileRow,
   useRemoveLetterFromCurrentRow,
 } from "../tileRow/hook";
 import { useOnSubmitGuess } from "../wordle/hooks";
+import { useContext } from "react";
+import { KeyboardContext } from "../Contexts/KeyboardContext";
 
+// change
 export const useLetterState = (letter) => {
-  const keyboard = useRecoilValue(keyboardState);
+  // const keyboard = useRecoilValue(keyboardState);
+  const keyboard = useContext(KeyboardContext).keyboardState;
   return keyboard[letter] || "pending";
 };
 
@@ -25,18 +27,19 @@ export const useOnBackspaceClicked = () => {
   return useRemoveLetterFromCurrentRow();
 };
 
+//change
 export const useUpdateKeyboardState = () => {
-  const [keyboard, setKeyboard] = useRecoilState(keyboardState);
+  const { keyboardState, setKeyboardState } = useContext(KeyboardContext);
 
   const updateKeyboardState = (letters = []) => {
-    const newKeyboardState = { ...keyboard };
+    const newKeyboardState = { ...keyboardState };
     letters.forEach((letter) => {
       if (newKeyboardState[letter.letter] !== "correct") {
         newKeyboardState[letter.letter] = letter.state;
       }
     });
 
-    setKeyboard(newKeyboardState);
+    setKeyboardState(newKeyboardState);
   };
 
   return updateKeyboardState;

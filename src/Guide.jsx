@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Guide() {
   return (
-    <div className="relative max-w-3xl p-6 mx-auto text-gray-800">
+    <div className="relative max-w-3xl p-6 mx-auto text-gray-100">
       <Link
         to="/home"
         className="absolute top-0 right-0 self-center px-2 py-2 -my-3 text-sm font-extrabold text-center bg-center bg-cover rounded-full md:px-20 md:m-5 md:text-xl justify-self-center font-figtree text-backblack min-w-60 max-w-96"
@@ -22,7 +22,7 @@ function Guide() {
           <li>Enter a valid five-letter word as your guess.</li>
           <li>
             Letter color meanings:
-            <ul className="ml-6 list-disc">
+            <ul className="p-5 ml-6 text-gray-200 list-disc bg-black rounded-3xl bg-opacity-30">
               <li>
                 <span className="font-semibold text-green-600">Green:</span>{" "}
                 Correct letter and position.

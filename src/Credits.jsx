@@ -23,8 +23,8 @@ function Credits() {
 
       <main class="container mx-auto px-4 py-6">
         <section class="mb-8">
-          <h2 class="text-xl font-semibold text-blue-600">Project Overview</h2>
-          <p class="mt-2 text-justify">
+          <h2 class="text-xl font-semibold text-gray-200">Project Overview</h2>
+          <p class="mt-2 text-justify text-gray-100">
             This Wordle game is a fun and interactive project developed entirely
             in <strong>React</strong>. The concept is simple yet engaging:
             players must guess a randomly selected five-letter word from a
@@ -33,7 +33,7 @@ function Credits() {
           </p>
         </section>
 
-        <div className="duration-150  hover:scale-90">
+        <div className="duration-150 hover:scale-90">
           <MyLink
             className="self-center px-20 py-2 text-xl font-extrabold duration-150 bg-center bg-cover rounded-full hover:scale-90 justify-self-center font-figtree text-backblack min-w-60 max-w-96"
             style={{ backgroundImage: 'url("../images/Tab.png")' }}

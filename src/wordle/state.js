@@ -7,5 +7,5 @@ export const maxTriesAtom = atom({
 
 export const selectedWordAtom = atom({
   key: "SelectedWord",
-  default: {},
+  default: { word: "", length: 0 }, // Example structure
 });

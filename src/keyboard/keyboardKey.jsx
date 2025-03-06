@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useContext, useRef } from "react";
 import "./keyboard.css";
 import { BsBackspace } from "react-icons/bs";
-import { useVolume } from "../VolumeContext";
 import {
   useLetterState,
   useOnBackspaceClicked,
   useOnEnterClicked,
   useOnLetterSelected,
 } from "./hooks";
+import { VolumeContext } from "../Contexts/VolumeContext";
 
 export const PENDING_STATE = "pending";
 export const INCORRECT_STATE = "incorrect";
@@ -20,7 +20,7 @@ export const KeyboardKey = ({
   children,
   ...props
 }) => {
-  const { volume } = useVolume(); // Get the global volume
+  const { volume } = useContext(VolumeContext); // Get the global volume
 
   const playClickSound = () => {
     const btnClick = new Audio("../audios/btnClick.mp3");
@@ -30,16 +30,30 @@ export const KeyboardKey = ({
     });
   };
 
+  const btnRef = useRef(null);
+
+  const animate = () => {
+    try {
+      btnRef.current.classlist.add("animate-ping");
+
+      setTimeout(() => btnRef.current.className.remove("animate-ping"), 500);
+    } catch (error) {
+      console.log("error: ", error);
+    }
+  };
+
   return (
     <button
       data-state={state}
       data-size={size}
+      ref={btnRef}
       {...props}
       onClick={(e) => {
-        playClickSound(); // Play sound on click
+        playClickSound();
+        animate();
         props.onClick && props.onClick(e); // Call the original onClick handler, if provided
       }}
-      className="key px-2 xs:px-2 xs:py-2 py-1.5 m-1 my-1.5 text-base sm:text-xl hover:bg-deepgray font-semibold text-center border-0 rounded-md sm:p-4 sm:m-0.5 md:p-6 md:m-1 xl:text-2xl xl:p-5 text-lightwhite bg-littlegray keyboard-key"
+      className="key scale-90 md:scale-100 px-2 xs:px-2 xs:py-2 py-1.5 m-1 my-1.5 text-base sm:text-xl hover:bg-deepgray font-semibold text-center border-0 rounded-md sm:p-4 sm:m-0.5 md:p-6 md:m-1 xl:text-2xl xl:p-5 text-lightwhite bg-littlegray keyboard-key"
     >
       {children}
     </button>
