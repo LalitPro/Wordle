@@ -27,7 +27,8 @@ function GameOver() {
   }
 
   const userName = localStorage.getItem("userName");
-  const hiddenWord = localStorage.getItem("hiddenWord");
+  const hiddenWord = localStorage.getItem("word");
+  const hint = localStorage.getItem("hint");
   const rowIndex = localStorage.getItem("rowIndex") || 1;
 
   return (
@@ -37,8 +38,11 @@ function GameOver() {
       </h1>
       <div className="flex flex-col items-center justify-center">
         <h2 className="text-3xl font-extrabold text-center text-white font-figtree">
-          The word is {""}
-          <span className="font-extrabold text-backblack">{hiddenWord}</span>
+          The word is
+          <span className="font-extrabold text-backblack">
+            {" "}
+            {hiddenWord.toUpperCase()}
+          </span>
         </h2>
 
         {!win && (
@@ -122,6 +126,7 @@ function GameOver() {
             )}
           </div>
         )}
+        <h1 className="text-2xl font-bold text-center text-gray-700">{hint}</h1>
         <h2 className="text-2xl font-bold text-center text-backblack">
           Thanks for playing today!
         </h2>

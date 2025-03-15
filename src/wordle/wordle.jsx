@@ -1,7 +1,7 @@
 import { Keyboard } from "../keyboard/keyboard";
 import { GameBoard } from "./gameboard";
 import { usePickRandomWord } from "./hooks";
-import { useKeyboardInput } from "./hooks"; // adjust path as necessary
+import { useKeyboardInput } from "./hooks";
 import { useOnSubmitGuess } from "./hooks";
 import { useCurrentTileRow } from "../tileRow/hook";
 import { AiFillSound } from "react-icons/ai";
@@ -19,6 +19,10 @@ const Wordle = () => {
 
   const secretWord = useParams().secretWord;
 
+  const [invalid, setInvalid] = useState(false);
+
+  const [hint, setHint] = useState();
+
   useEffect(() => {
     if (
       window.location.pathname != "/game/" &&
@@ -29,19 +33,18 @@ const Wordle = () => {
         length: secretWord.length,
       });
     }
+
+    async function getSethint() {
+      const hint = await getWordHint(selectedWord);
+      localStorage.setItem("word", selectedWord);
+      localStorage.setItem("hint", hint[1].definition);
+      setHint(hint[0].definition);
+    }
+
+    if (selectedWord) {
+      getSethint();
+    }
   }, [selectedWord]);
-  const [invalid, setInvalid] = useState(false);
-
-  // const [hint, setHint] = useState();
-
-  // useEffect(() => {
-  //   async function getSethint() {
-  //     const hint = await getWordHint(selectedWord);
-  //     setHint(hint);
-  //   }
-
-  //   getSethint();
-  // }, [selectedWord]);
 
   const { volume, setVolume } = useContext(VolumeContext);
 
@@ -91,9 +94,11 @@ const Wordle = () => {
           onChange={changeVolume}
         />
       </div>
-      {/* <h2 className="text-center text-white">
-        <span className="text-2xl">Hint: {hint ? hint : "Loading..."}</span>
-      </h2> */}
+      <h2 className="text-center text-white">
+        <span className="text-lg bg-black bg-opacity-30">
+          Hint: {hint ? hint : "Loading..."}
+        </span>
+      </h2>
       <div className="flex flex-col items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
         <GameBoard />
         <Keyboard />

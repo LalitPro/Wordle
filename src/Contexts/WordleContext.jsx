@@ -15,4 +15,4 @@ const WorldeProvider = ({ children }) => {
   );
 };
 
-export default memo(WorldeProvider);
+export default WorldeProvider;

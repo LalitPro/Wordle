@@ -20,7 +20,7 @@ export const useOnLetterSelected = (letter) => {
 };
 
 export const useOnEnterClicked = () => {
-  return useOnSubmitGuess();
+  return useOnSubmitGuess(localStorage.getItem("hiddenWord"));
 };
 
 export const useOnBackspaceClicked = () => {
