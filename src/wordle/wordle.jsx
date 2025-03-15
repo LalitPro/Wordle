@@ -5,35 +5,52 @@ import { useKeyboardInput } from "./hooks"; // adjust path as necessary
 import { useOnSubmitGuess } from "./hooks";
 import { useCurrentTileRow } from "../tileRow/hook";
 import { AiFillSound } from "react-icons/ai";
-import { useContext, useEffect, useRef, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { selectedWordAtom } from "./state";
+import { memo, useContext, useEffect, useState } from "react";
 import { VolumeContext } from "../Contexts/VolumeContext";
 import { WordleContext } from "../Contexts/WordleContext";
 import getWordHint from "../api";
+import { useParams } from "react-router-dom";
+import { DeHashWord } from "../hash";
 
-export const Wordle = () => {
-  const [invalid, setInvalid] = useState(false);
-
-  const [hint, setHint] = useState();
+const Wordle = () => {
+  const { setSelectedWord } = useContext(WordleContext);
 
   const selectedWord = useContext(WordleContext).selectedWord.word;
 
-  useEffect(() => {
-    async function getSethint() {
-      const hint = await getWordHint(selectedWord);
-      setHint(hint);
-    }
+  const secretWord = useParams().secretWord;
 
-    getSethint();
+  useEffect(() => {
+    if (
+      window.location.pathname != "/game/" &&
+      window.location.pathname != "/game"
+    ) {
+      setSelectedWord({
+        word: DeHashWord(secretWord),
+        length: secretWord.length,
+      });
+    }
   }, [selectedWord]);
+  const [invalid, setInvalid] = useState(false);
+
+  // const [hint, setHint] = useState();
+
+  // useEffect(() => {
+  //   async function getSethint() {
+  //     const hint = await getWordHint(selectedWord);
+  //     setHint(hint);
+  //   }
+
+  //   getSethint();
+  // }, [selectedWord]);
 
   const { volume, setVolume } = useContext(VolumeContext);
 
-  const onSubmitGuess = useOnSubmitGuess();
+  const onSubmitGuess = useOnSubmitGuess(selectedWord);
   const [tileRow, setTileRow] = useCurrentTileRow();
 
-  usePickRandomWord();
+  window.location.pathname == "/game" || window.location.pathname == "/game/"
+    ? usePickRandomWord()
+    : null;
   useKeyboardInput(onSubmitGuess, setTileRow);
 
   const changeVolume = (event) => {
@@ -74,9 +91,9 @@ export const Wordle = () => {
           onChange={changeVolume}
         />
       </div>
-      <h2 className="text-center text-white">
+      {/* <h2 className="text-center text-white">
         <span className="text-2xl">Hint: {hint ? hint : "Loading..."}</span>
-      </h2>
+      </h2> */}
       <div className="flex flex-col items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
         <GameBoard />
         <Keyboard />
@@ -107,3 +124,5 @@ export const Wordle = () => {
     </div>
   );
 };
+
+export default memo(Wordle);

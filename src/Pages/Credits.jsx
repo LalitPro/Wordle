@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MyLink from "./MyLink";
+import MyLink from "../MyLink";
 
 function Credits() {
   return (

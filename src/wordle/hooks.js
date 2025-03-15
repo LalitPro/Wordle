@@ -77,7 +77,6 @@ export function usePickRandomWord() {
     const index = Math.floor(Math.random() * words.length);
     setWord(words[index]);
     setSelectedWord({ word: words[index], length: 5 });
-    localStorage.setItem("hiddenWord", words[index].toUpperCase());
   }, []);
 
   /*const randomWord = axios.get(
@@ -118,9 +117,8 @@ export function useKeyboardInput(onSubmitGuess, updateTileRow) {
 
 */
 
-export function useOnSubmitGuess() {
+export function useOnSubmitGuess(selectedWord) {
   const volume = useVolume();
-  const selectedWord = useRecoilValue(selectedWordAtom);
   const [tileRow, setTileRow] = useCurrentTileRow();
   const [rowIndex, setRowIndex] = useRecoilState(currentTileRowIndexAtom);
   const updateKeyboardState = useUpdateKeyboardState();

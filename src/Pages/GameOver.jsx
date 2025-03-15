@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import MyLink from "./MyLink";
-import { selectedWordAtom } from "./wordle/state";
+import MyLink from "../MyLink";
+import { selectedWordAtom } from "../wordle/state";
 import { useRecoilValue } from "recoil";
-import { VolumeContext } from "./Contexts/VolumeContext";
+import { VolumeContext } from "../Contexts/VolumeContext";
 
 function GameOver() {
   const path = window.location.pathname;
