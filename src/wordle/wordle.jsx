@@ -99,7 +99,7 @@ const Wordle = () => {
       </div>
       {showHint ? (
         <h2 className="text-center text-white">
-          <span className="text-lg bg-black bg-opacity-30">
+          <span className="px-2 py-1 text-lg bg-black rounded-md bg-opacity-30">
             Hint: {hint ? hint : "Loading..."}
           </span>
         </h2>
