@@ -8,10 +8,11 @@ import { AiFillSound } from "react-icons/ai";
 import { memo, useContext, useEffect, useState } from "react";
 import { VolumeContext } from "../Contexts/VolumeContext";
 import { WordleContext } from "../Contexts/WordleContext";
-import getWordHint from "../api";
+import getWordHint, { getWordPronunciation } from "../api";
 import { useParams } from "react-router-dom";
 import { DeHashWord } from "../hash";
 import { GiShintoShrine } from "react-icons/gi";
+import { MdOutlineSpatialAudio } from "react-icons/md";
 
 const Wordle = () => {
   const { setSelectedWord } = useContext(WordleContext);
@@ -25,6 +26,13 @@ const Wordle = () => {
   const [hint, setHint] = useState();
   const [showHint, setShowHint] = useState(false);
 
+  const [pronounce, setPronounce] = useState(null);
+  const [pronounceCount, setPronounceCount] = useState(0);
+
+  const playPronunciation = () => {
+    pronounce.play();
+  };
+
   useEffect(() => {
     if (
       window.location.pathname != "/game/" &&
@@ -36,8 +44,16 @@ const Wordle = () => {
       });
     }
 
+    async function getPronunciation() {
+      const audio = await getWordPronunciation(selectedWord);
+      setPronounce(audio);
+    }
+
+    getPronunciation();
+
     async function getSethint() {
       localStorage.setItem("word", selectedWord);
+
       const hint = await getWordHint(selectedWord);
 
       localStorage.setItem("hint", hint[1]?.definition || hint[0]?.definition);
@@ -115,19 +131,65 @@ const Wordle = () => {
           Hint
         </button>
       )}
+
+      <button
+        onClick={(e) => {
+          if (!pronounce) {
+            return;
+          }
+          if (pronounceCount >= 5) {
+            e.target.disabled = true;
+          } else {
+            pronounce.play();
+            setPronounceCount(pronounceCount + 1);
+          }
+        }}
+        className={
+          "items-center justify-center md:hidden m-3 text-2xl font-bold text-white duration-100 disabled:hover:scale-100 disabled:opacity-50 hover:scale-110 flex" +
+          (!pronounce ? " opacity-50" : "")
+        }
+      >
+        <MdOutlineSpatialAudio className="p-2 mr-2 text-2xl font-black rounded-full bg-rose-400 text-lightwhite md:text-5xl" />
+        Pronounce
+      </button>
+
       <div className="flex flex-col items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
         <GameBoard />
         <div classname="flex flex-col items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
-          <button
-            onClick={(e) => {
-              setShowHint(true);
-              e.target.disabled = true;
-            }}
-            className="items-center justify-center hidden m-3 text-2xl font-bold text-white duration-100 disabled:hover:scale-100 disabled:opacity-70 hover:scale-110 md:flex"
-          >
-            <GiShintoShrine className="p-2 mr-2 text-2xl font-black bg-yellow-400 rounded-full text-lightwhite md:text-5xl" />
-            Hint
-          </button>
+          <div className="flex items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
+            <button
+              onClick={(e) => {
+                setShowHint(true);
+                e.target.disabled = true;
+              }}
+              className="items-center justify-center hidden m-3 text-2xl font-bold text-white duration-100 disabled:hover:scale-100 disabled:opacity-50 hover:scale-110 md:flex"
+            >
+              <GiShintoShrine className="p-2 mr-2 text-2xl font-black bg-yellow-400 rounded-full text-lightwhite md:text-5xl" />
+              Hint
+            </button>
+
+            <button
+              onClick={(e) => {
+                if (!pronounce) {
+                  return;
+                }
+                if (pronounceCount >= 5) {
+                  e.target.disabled = true;
+                } else {
+                  pronounce.play();
+                  setPronounceCount(pronounceCount + 1);
+                }
+              }}
+              className={
+                "items-center justify-center hidden m-3 text-2xl font-bold text-white duration-100 disabled:hover:scale-100 disabled:opacity-50 hover:scale-110 md:flex" +
+                (!pronounce ? " opacity-50" : "")
+              }
+            >
+              <MdOutlineSpatialAudio className="p-2 mr-2 text-2xl font-black rounded-full bg-rose-400 text-lightwhite md:text-5xl" />
+              Pronounce
+            </button>
+          </div>
+
           <Keyboard />
         </div>
       </div>
