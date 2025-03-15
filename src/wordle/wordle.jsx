@@ -44,24 +44,20 @@ const Wordle = () => {
       });
     }
 
-    async function getPronunciation() {
-      const audio = await getWordPronunciation(selectedWord);
-      setPronounce(audio);
-    }
-
-    getPronunciation();
-
-    async function getSethint() {
+    async function callAPI() {
       localStorage.setItem("word", selectedWord);
 
       const hint = await getWordHint(selectedWord);
 
       localStorage.setItem("hint", hint[1]?.definition || hint[0]?.definition);
       setHint(hint[0]?.definition);
+
+      const audio = await getWordPronunciation(selectedWord);
+      setPronounce(audio);
     }
 
     if (selectedWord) {
-      getSethint();
+      callAPI();
     }
   }, [selectedWord]);
 
@@ -101,25 +97,7 @@ const Wordle = () => {
         </span>
         Guess today's Word
       </h2>
-      <div className="absolute z-50 flex flex-col items-center justify-center w-10 right-5 top-10">
-        <AiFillSound className="text-3xl text-yellow-500" />
-        <input
-          className="w-full"
-          type="range"
-          value={volume}
-          min={0}
-          max={1}
-          step={1}
-          onChange={changeVolume}
-        />
-      </div>
-      {showHint ? (
-        <h2 className="text-center text-white">
-          <span className="px-2 py-1 text-lg bg-black rounded-md bg-opacity-30">
-            Hint: {hint ? hint : "Loading..."}
-          </span>
-        </h2>
-      ) : (
+      <div className="flex items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
         <button
           onClick={(e) => {
             setShowHint(true);
@@ -128,31 +106,48 @@ const Wordle = () => {
           className="flex items-center justify-center m-3 text-2xl font-bold text-white duration-100 md:hidden disabled:hover:scale-100 disabled:opacity-70 hover:scale-110"
         >
           <GiShintoShrine className="p-2 mr-2 text-2xl font-black bg-yellow-400 rounded-full text-lightwhite md:text-5xl" />
-          Hint
         </button>
+
+        <button
+          onClick={(e) => {
+            if (!pronounce) {
+              return;
+            }
+            if (pronounceCount >= 5) {
+              e.target.disabled = true;
+            } else {
+              pronounce.play();
+              setPronounceCount(pronounceCount + 1);
+            }
+          }}
+          className={
+            "items-center justify-center md:hidden m-3 text-2xl font-bold text-white duration-100 disabled:hover:scale-100 disabled:opacity-50 hover:scale-110 flex" +
+            (!pronounce ? " opacity-50" : "")
+          }
+        >
+          <MdOutlineSpatialAudio className="p-2 mr-2 text-2xl font-black rounded-full bg-rose-400 text-lightwhite md:text-5xl" />
+        </button>
+        <div className="flex flex-col items-center justify-center w-10 right-5 top-10">
+          <AiFillSound className="text-3xl text-yellow-500" />
+          <input
+            className="w-full"
+            type="range"
+            value={volume}
+            min={0}
+            max={1}
+            step={1}
+            onChange={changeVolume}
+          />
+        </div>
+      </div>
+
+      {showHint && (
+        <h2 className="text-center text-white">
+          <span className="px-2 py-1 text-lg bg-black rounded-md bg-opacity-30">
+            Hint: {hint ? hint : "Loading..."}
+          </span>
+        </h2>
       )}
-
-      <button
-        onClick={(e) => {
-          if (!pronounce) {
-            return;
-          }
-          if (pronounceCount >= 5) {
-            e.target.disabled = true;
-          } else {
-            pronounce.play();
-            setPronounceCount(pronounceCount + 1);
-          }
-        }}
-        className={
-          "items-center justify-center md:hidden m-3 text-2xl font-bold text-white duration-100 disabled:hover:scale-100 disabled:opacity-50 hover:scale-110 flex" +
-          (!pronounce ? " opacity-50" : "")
-        }
-      >
-        <MdOutlineSpatialAudio className="p-2 mr-2 text-2xl font-black rounded-full bg-rose-400 text-lightwhite md:text-5xl" />
-        Pronounce
-      </button>
-
       <div className="flex flex-col items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
         <GameBoard />
         <div classname="flex flex-col items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
