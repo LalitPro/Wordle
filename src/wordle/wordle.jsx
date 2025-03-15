@@ -11,6 +11,7 @@ import { WordleContext } from "../Contexts/WordleContext";
 import getWordHint from "../api";
 import { useParams } from "react-router-dom";
 import { DeHashWord } from "../hash";
+import { GiShintoShrine } from "react-icons/gi";
 
 const Wordle = () => {
   const { setSelectedWord } = useContext(WordleContext);
@@ -22,6 +23,7 @@ const Wordle = () => {
   const [invalid, setInvalid] = useState(false);
 
   const [hint, setHint] = useState();
+  const [showHint, setShowHint] = useState(false);
 
   useEffect(() => {
     if (
@@ -95,14 +97,39 @@ const Wordle = () => {
           onChange={changeVolume}
         />
       </div>
-      <h2 className="text-center text-white">
-        <span className="text-lg bg-black bg-opacity-30">
-          Hint: {hint ? hint : "Loading..."}
-        </span>
-      </h2>
+      {showHint ? (
+        <h2 className="text-center text-white">
+          <span className="text-lg bg-black bg-opacity-30">
+            Hint: {hint ? hint : "Loading..."}
+          </span>
+        </h2>
+      ) : (
+        <button
+          onClick={(e) => {
+            setShowHint(true);
+            e.target.disabled = true;
+          }}
+          className="flex items-center justify-center m-3 text-2xl font-bold text-white duration-100 md:hidden disabled:hover:scale-100 disabled:opacity-70 hover:scale-110"
+        >
+          <GiShintoShrine className="p-2 mr-2 text-2xl font-black bg-yellow-400 rounded-full text-lightwhite md:text-5xl" />
+          Hint
+        </button>
+      )}
       <div className="flex flex-col items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
         <GameBoard />
-        <Keyboard />
+        <div classname="flex flex-col items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
+          <button
+            onClick={(e) => {
+              setShowHint(true);
+              e.target.disabled = true;
+            }}
+            className="items-center justify-center hidden m-3 text-2xl font-bold text-white duration-100 disabled:hover:scale-100 disabled:opacity-70 hover:scale-110 md:flex"
+          >
+            <GiShintoShrine className="p-2 mr-2 text-2xl font-black bg-yellow-400 rounded-full text-lightwhite md:text-5xl" />
+            Hint
+          </button>
+          <Keyboard />
+        </div>
       </div>
       {invalid && (
         <div className="fixed inset-0 z-10 flex items-center justify-center duration-100 bg-gray-800 bg-opacity-50">
