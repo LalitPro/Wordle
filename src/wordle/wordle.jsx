@@ -35,10 +35,11 @@ const Wordle = () => {
     }
 
     async function getSethint() {
-      const hint = await getWordHint(selectedWord);
       localStorage.setItem("word", selectedWord);
-      localStorage.setItem("hint", hint[1].definition);
-      setHint(hint[0].definition);
+      const hint = await getWordHint(selectedWord);
+
+      localStorage.setItem("hint", hint[1]?.definition || hint[0]?.definition);
+      setHint(hint[0]?.definition);
     }
 
     if (selectedWord) {
