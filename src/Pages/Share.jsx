@@ -20,7 +20,7 @@ function Share() {
       }
 
       if (isvalidWord) {
-        let baseUrl = "localhost:5173";
+        let baseUrl = "worlde4u.netlify.app";
         setLink(baseUrl + "/word/" + HashWord(wordToShare));
       }
     }
