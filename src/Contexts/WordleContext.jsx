@@ -9,7 +9,13 @@ const WorldeProvider = ({ children }) => {
   localStorage.setItem("hiddenWord", selectedWord.word);
 
   return (
-    <WordleContext.Provider value={{ maxTries, selectedWord, setSelectedWord }}>
+    <WordleContext.Provider
+      value={{
+        maxTries,
+        selectedWord,
+        setSelectedWord,
+      }}
+    >
       {children}
     </WordleContext.Provider>
   );

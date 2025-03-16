@@ -15,7 +15,7 @@ import { GiShintoShrine } from "react-icons/gi";
 import { MdOutlineSpatialAudio } from "react-icons/md";
 
 const Wordle = () => {
-  const { setSelectedWord } = useContext(WordleContext);
+  const { setSelectedWord, setPronounce } = useContext(WordleContext);
 
   const selectedWord = useContext(WordleContext).selectedWord.word;
 
@@ -25,13 +25,6 @@ const Wordle = () => {
 
   const [hint, setHint] = useState();
   const [showHint, setShowHint] = useState(false);
-
-  const [pronounce, setPronounce] = useState(null);
-  const [pronounceCount, setPronounceCount] = useState(0);
-
-  const playPronunciation = () => {
-    pronounce.play();
-  };
 
   useEffect(() => {
     if (
@@ -50,10 +43,13 @@ const Wordle = () => {
       const hint = await getWordHint(selectedWord);
 
       localStorage.setItem("hint", hint[1]?.definition || hint[0]?.definition);
+      if (!hint[0].definition) {
+        setHint("Not Availble!");
+      }
       setHint(hint[0]?.definition);
 
       const audio = await getWordPronunciation(selectedWord);
-      setPronounce(audio);
+      localStorage.setItem("audio", audio);
     }
 
     if (selectedWord) {
@@ -97,17 +93,17 @@ const Wordle = () => {
         </span>
         Guess today's Word
       </h2>
-      <div className="flex items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
+      <div className="flex items-center justify-center w-full h-full gap-5 md:hidden xl:gap-10 xl:flex-row">
         <button
           onClick={(e) => {
             setShowHint(true);
             e.target.disabled = true;
           }}
-          className="flex items-center justify-center m-3 text-2xl font-bold text-white duration-100 md:hidden disabled:hover:scale-100 disabled:opacity-70 hover:scale-110"
+          className="flex items-center justify-center m-3 text-2xl font-bold text-white duration-100 disabled:hover:scale-100 disabled:opacity-70 hover:scale-110"
         >
           <GiShintoShrine className="p-2 mr-2 text-2xl font-black bg-yellow-400 rounded-full text-lightwhite md:text-5xl" />
         </button>
-
+        {/* 
         <button
           onClick={(e) => {
             if (!pronounce) {
@@ -126,7 +122,7 @@ const Wordle = () => {
           }
         >
           <MdOutlineSpatialAudio className="p-2 mr-2 text-2xl font-black rounded-full bg-rose-400 text-lightwhite md:text-5xl" />
-        </button>
+        </button> */}
         <div className="flex flex-col items-center justify-center w-10 right-5 top-10">
           <AiFillSound className="text-3xl text-yellow-500" />
           <input
@@ -151,18 +147,18 @@ const Wordle = () => {
       <div className="flex flex-col items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
         <GameBoard />
         <div classname="flex flex-col items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
-          <div className="flex items-center justify-center w-full h-full gap-5 xl:gap-10 xl:flex-row">
+          <div className="items-center justify-center hidden w-full h-full gap-5 md:flex xl:gap-10 xl:flex-row">
             <button
               onClick={(e) => {
                 setShowHint(true);
                 e.target.disabled = true;
               }}
-              className="items-center justify-center hidden m-3 text-2xl font-bold text-white duration-100 disabled:hover:scale-100 disabled:opacity-50 hover:scale-110 md:flex"
+              className="flex items-center justify-center m-3 text-2xl font-bold text-white duration-100 disabled:hover:scale-100 disabled:opacity-50 hover:scale-110"
             >
               <GiShintoShrine className="p-2 mr-2 text-2xl font-black bg-yellow-400 rounded-full text-lightwhite md:text-5xl" />
               Hint
             </button>
-
+            {/* 
             <button
               onClick={(e) => {
                 if (!pronounce) {
@@ -182,7 +178,7 @@ const Wordle = () => {
             >
               <MdOutlineSpatialAudio className="p-2 mr-2 text-2xl font-black rounded-full bg-rose-400 text-lightwhite md:text-5xl" />
               Pronounce
-            </button>
+            </button> */}
           </div>
 
           <Keyboard />

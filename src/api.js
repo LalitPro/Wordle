@@ -31,20 +31,5 @@ export const getWordPronunciation = async (word) => {
 
   const base64Audio = response.data.audio_data;
 
-  const audioBlob = new Blob(
-    [
-      new Uint8Array(
-        atob(base64Audio)
-          .split("")
-          .map((char) => char.charCodeAt(0))
-      ),
-    ],
-    { type: "audio/wav" }
-  );
-
-  // ऑडियो ऑब्जेक्ट बनाएं
-  const audioUrl = URL.createObjectURL(audioBlob);
-  const audio = new Audio(audioUrl);
-
-  return audio;
+  return base64Audio;
 };
