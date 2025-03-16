@@ -179,6 +179,18 @@ const Wordle = () => {
               <MdOutlineSpatialAudio className="p-2 mr-2 text-2xl font-black rounded-full bg-rose-400 text-lightwhite md:text-5xl" />
               Pronounce
             </button> */}
+            <div className="flex flex-col items-center justify-center w-10 right-5 top-10">
+              <AiFillSound className="text-3xl text-yellow-500" />
+              <input
+                className="w-full"
+                type="range"
+                value={volume}
+                min={0}
+                max={1}
+                step={1}
+                onChange={changeVolume}
+              />
+            </div>
           </div>
 
           <Keyboard />
