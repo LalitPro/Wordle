@@ -90,13 +90,13 @@ function Home() {
             >
               Share Custom
             </MyLink>
-            <MyLink
+            {/* <MyLink
               className="self-center px-20 py-2 text-xl font-extrabold bg-center bg-cover rounded-full justify-self-center font-figtree text-backblack min-w-60 max-w-96"
               style={{ backgroundImage: 'url("../images/Tab.png")' }}
               to="/credits"
             >
               Credits
-            </MyLink>
+            </MyLink> */}
             <MyLink
               className="self-center px-20 py-2 text-xl font-extrabold bg-center bg-cover rounded-full justify-self-center font-figtree text-backblack min-w-60 max-w-96"
               style={{ backgroundImage: 'url("../images/Tab.png")' }}
