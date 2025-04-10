@@ -19,7 +19,7 @@ function AboutMe() {
           className="w-full mb-6 rounded-2xl shadow-lg object-cover"
         />
         <p className="text-lg md:text-xl leading-relaxed">
-          Hello! My name is Lalit Kumar Yadav, a student of Class 9 at
+          Hello! My name is Lalit Kumar Yadav, a student of Class 10 at
           Government High School, Bhatti. I come from the village of Nayagaon in
           Tehsil Itarsi, District Narmadapuram. I study in a Hindi medium
           school.
