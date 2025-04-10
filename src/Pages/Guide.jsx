@@ -17,7 +17,7 @@ function Guide() {
       <div className="flex justify-center items-center mt-16">
         <div className="w-full max-w-[360px] aspect-[9/16] sm:max-w-[400px] md:max-w-[480px] lg:max-w-[540px] xl:max-w-[600px]">
           <iframe
-            src="https://www.youtube.com/embed/YyHoGIrlAQk?rel=0&start=18&autoplay=1"
+            src="https://www.youtube.com/embed/YyHoGIrlAQk?rel=0&start=0&autoplay=1"
             title="How to Play Wordle"
             className="w-full h-full rounded-xl shadow-lg"
             frameBorder="0"
