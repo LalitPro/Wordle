@@ -35,11 +35,14 @@ function AboutMe() {
           <br />
           <br />A turning point came in July when our school principal
           introduced us to <strong>Team CodeYogi</strong>—an initiative launched
-          by SDM IAS <strong>Mr. T. Prateek Rao</strong> to empower students
-          from rural backgrounds with digital skills. Through this platform,
-          I’ve learned HTML, CSS, JavaScript, Tailwind CSS, and React. I
-          regularly practice coding on my mobile and PC, and have completed over
-          100 levels of a Telegram-based course.
+          by SDM IAS{" "}
+          <span>
+            <strong>Mr. T. Prateek Rao</strong>
+          </span>{" "}
+          to empower students from rural backgrounds with digital skills.
+          Through this platform, I’ve learned HTML, CSS, JavaScript, Tailwind
+          CSS, and React. I regularly practice coding on my mobile and PC, and
+          have completed over 100 levels of a Telegram-based course.
           <br />
           <br />
           <span className="block px-4 py-3 my-4 bg-white/10 border border-white/20 rounded-xl backdrop-blur-sm shadow-md">
